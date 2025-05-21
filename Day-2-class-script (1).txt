@@ -1,0 +1,242 @@
+Day-2 
+
+1- what is script  ?
+2- why we use shell scripting ?
+3- What is shell and what is kernel ?
+4- Kernel task ?
+5- How we can create any shell script file ?
+6- How we can execute any shell script file  ?
+7- what is the use of echo command  ?
+8- Why we use variable in linux and types of variables ?
+9- Expr command to perform add , substraction, multiply...etc 
+10- what is the use of read command  ?
+11- examples of expr command.
+
+12- read is use to take input from the keyboard and store it as a variable.
+this variable can be call anywhere into the program.
+
+read variable 
+Examples
+
+13- Types of Quotes
+
+1- Single Quotes    ' '     ===> Print as it is ...
+
+2- Double Quotes    "  "    ===> It is use to print any mesg plus it can be use to print out put of any variables.
+                                 because it performs the meaning of $ and \  symbol.
+
+3- Back Quotes      `   `   ===> It is use to print output of any commands only.
+
+          Example:       `command`   OR    $(command) 
+
+Note:    we can use  " " double quotes in top of back quotes symbol , but we can'y use single quotes.
+
+
+14-  What is the use of exit status ?
+
+
+     exit status basically use to find out the status of last commnad executed by the user , whether it is successfully
+     executed or not ?
+
+     $?   ==> is use to check the exit status or error code of the last command  ..
+
+    if exit code is comming  0  ==> means successfullt executed 
+    if output is non zero than means having something issue with last command  ?
+
+    0  - 255   ==>  0   
+
+
+
+
+15- Conditional Statement    ===> It is use to test any conditions whether it is true or false ?
+                                  if command use to test any conditions.
+
+
+
+ we always use test command to verify any conditions.
+
+test  expression   OR  [ expr ]    OR   test condition
+*************************************************************
+
+
+test  or   [ ]   OR   [  condition ]   OR   test condition
+
+
+***************************************************************
+
+
+if  [ $i -lt  10 ]   OR if test $i -lt 10   OR   if [ $? -eq 0 ]  OR if test $? -eq  0  
+
+
+****************************************************************
+
+Note:   we have four types of operator to test any conditions ?
+
+****************************************************************
+
+
+If  Syntax ?
+
+
+
+1-  if ....fi
+
+2-  if ...else...fi
+
+3-  nested if 
+
+    if ...elif....elif..elif...else...fi 
+
+
+
+
+Example:-  First  
+
+
+
+if [ condition ]     <===== it is is true
+
+then 
+    {
+
+     Do this or set of commands you can pass here      
+
+     }
+fi
+
+Note:    {   }    both are optional symbols.
+
+
+
+Example:-   Second
+
+
+if [ condition ] 
+then
+    {
+
+      Do this or set of commands you can pass here
+
+    }
+else
+     {
+
+      Do this or set of commands you can pass here
+
+     }
+
+fi
+
+
+Example:- Third 
+
+if [ condition-1 ]
+then
+     {
+      Do this or set of commands you can pass here
+     }
+elif [ condition-2 ]
+then
+     {
+     Do this or set of commands you can pass here
+     }
+elif [ condition-3 ]
+then
+     {
+      Do this or set of commands you can pass here
+      }
+........
+else
+    {
+     Do this or set of commands you can pass here
+      }
+fi
+
+
+we can not use if statement with out test command or you can say types of test operator.
+
+ if  [ condition ]   or  if  test condition   or  if [ $i -lt 10 ]  or    if  test  $i -lt 10
+
+**************************************************************************************************
+
+Types of testing  operators or comaprison operator ?
+
+1- Numeric testing operator  
+
+2- String test operator
+
+3- File test operator  
+
+4- Logical operator or Boolean operator 
+
+
+***************************************************************************************************
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
