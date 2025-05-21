@@ -1,0 +1,333 @@
+Day-session-commands   
+
+ 1  cat   /etc/passwd 
+    2  useradd   user1
+    3  useradd   user2
+    4  useradd   user3
+    5  useradd   user4
+    6  useradd   user5 
+    7  ls  /home  
+    8  cat  /etc/passwd
+    9  cat  /etc/default/useradd 
+   10  cat  /etc/crontab 
+   11  cat  -n   /etc/crontab 
+   12  cat  -n  /etc/passwd 
+   13  cat  -n   /etc/crontab 
+   14  cat  -b   /etc/crontab 
+   15  cat  /etc/crontab 
+   16  tac    /etc/crontab 
+   17  cat  /etc/passwd
+   18  tac   /etc/passwd
+   19  history 
+   20  ls
+   21  cat anaconda-ks.cfg 
+   22  cat  initial-setup-ks.cfg
+   23  cat  /root/anaconda-ks.cfg 
+   24  cat  /etc/crontab     /etc/passwd  
+   25  wc  /etc/passwd 
+   26  wc  -l   /etc/passwd 
+   27  wc  -w    /etc/passwd 
+   28  wc  -c    /etc/passwd 
+   29  wc  -w   -l   /etc/passwd 
+   30  date  
+   31  cal  
+   32  date   cal  
+   33  date  ;   cal  
+   34  useradd  deepak  ; passwd deepak  
+   35  mkdir  /redhat  ; touch  /redhat/abc  
+   36  ls  /redhat
+   37  echo  
+   38  echo  hello
+   39  echo  "hello"
+   40  echo  "hello How are you?"
+   41  date ;  cal  ; dates ; echo  "hello"
+   42  date ;  cal  ; date ; echo  "hello"
+   43  echo  "hello"
+   44  cat /etc/passwd
+   45  cat /etc/passwd |  wc -l  
+   46  lscpu 
+   47  lscpu | cat  -n   
+   48  lscpu | wc -l  
+   49  lscpu | cat  
+   50  lscpu | cat  -n 
+   51  lsblk 
+   52  lsblk | cat  -n  
+   53  lsblk | wc  -l  
+   54  wc  -l  /etc/passwd  /etc/group 
+   55  wc -l  lscpu  
+   56  lscpu | wc -l   
+   57  lscpu ; wc -l   /etc/passwd   
+   58  history 
+   59  lsblk  ;  wc -l  /etc/passwd
+   60  lsblk  |    wc -l 
+   61  lscpu 
+   62  lscpu  | cat  -n  | head -n 3 
+   63  lscpu  | head -n 3 
+   64  lscpu  | head -n 3  | cat  -n  
+   65  cat -n  /etc/passwd | head  -n 5  
+   66  cat  /etc/passwd | head  -n 5  
+   67  cat  /etc/passwd | head  -n 5   | cat  -n 
+   68  cat  -n   /etc/passwd | head  -n 5  
+   69  cat  -n   /etc/passwd | head  -n 5    >   /tmp/new-file  
+   70  cat  /tmp/new-file 
+   71  lscpu  | head -n 3  | cat  -n  
+   72  lscpu  | head -n 3  | cat  -n   >  /tmp/new-file 
+   73  cat  /tmp/new-file 
+   74  cat  -n   /etc/passwd | head  -n 5    >>   /tmp/new-file  
+   75  ls  /tmp 
+   76  date   >>   /tmp/new-file 
+   77  cat  /tmp/new-file 
+   78  who  
+   79  ls  /tmp  
+   80  who   >    /tmp/user-info 
+   81  cat  /tmp/user-info 
+   82  date  >>   /tmp/user-info 
+   83  cat  /tmp/user-info 
+   84  echo  "this is my final report"  >>  /tmp/user-info 
+   85  cat  /tmp/user-info 
+   86  cat  /tmp/user-info   >  /tmp/backup-file  
+   87  cat  /tmp/user-info 
+   88  cat  /tmp/backup-file 
+   89  echo 
+   90  echo  >  /tmp/user-info 
+   91  cat  /tmp/user-info 
+   92  >   /tmp/user-info 
+   93  cat /tmp/user-info 
+   94  rm  -f  /tmp/user-info 
+   95  ls  /tmp  
+   96  echo  "testing team1"  >  /test-1
+   97  cat  /tmp/test-1 
+   98  echo  "testing team2"  >  /tmp/test-2
+   99  cat  /tmp/test-2 
+  100  cat  /tmp/test-1    /tmp/test-2 
+  101  cat  /tmp/test-1    /tmp/test-2    >  /tmp/third-file 
+  102  cat  /tmp/third-file 
+  103  echo  "testing team3"  >  /tmp/test-3
+  104  cat  /tmp/test-3
+  105  cat  /tmp/test-3   >>   /tmp/third-file 
+  106  cat  /tmp/third-file 
+  107  rm -f  /tmp/test-1   /tmp/test-2    /tmp/test-3  
+  108  ls /tmp  
+  109  cat  /tmp/third-file 
+  110  cat  /etc/passwd 
+  111  cat  /etc/group 
+  112  cat  /etc/shadow
+  113  cat  /etc/passwd  /etc/group   >   /new-backup  
+  114  ls  /
+  115  cat /new-backup 
+  116  cat  /etc/shadow    >>  /new-backup 
+  117  cat  /new-backup 
+  118  cat  /tmp/third-file 
+  119  cat  <   /tmp/third-file 
+  120  cat  <   /tmp/third-file  >  /krishna  
+  121  cat  /krishna 
+  122  cat /tmp/third-file 
+  123  lsblk  
+  124  lsblk   >   /disk-info 
+  125  cat  /disk-info 
+  126  lscpu  |  head  -n 3   >>  /disk-info 
+  127  cat  /disk-info 
+  128  lsblk  | tee   /disk-info 
+  129  cat /disk-info 
+  130  lscpu  | head  -n 3  | tee  -a /disk-info 
+  131  cat /disk-info 
+  132  echo  "this is my final report"  |  tee  -a /disk-info 
+  133  cat  /disk-info 
+  134  date ; cal  
+  135  date ; cal   > /info  
+  136  cat /info 
+  137  date  > /info ; cal   >> /info  
+  138  cat  /info 
+  139  date  | tee /info ; cal | tee -a  /info  
+  140  cat  /info 
+  141  history 
+  142  cat  /etc/passwd
+  143  head  /etc/passwd 
+  144  tail  /etc/passwd
+  145  head  -n 5  /etc/passwd 
+  146  head  -5  /etc/passwd 
+  147  tail -n 5  /etc/passwd
+  148  tail -5  /etc/passwd
+  149  head  -n 5  /etc/passwd ;   tail -n 5  /etc/passwd
+  150  head  -5  /etc/passwd ;   tail -5  /etc/passwd
+  151  head -n 1  /etc/passwd  ; tail -n 1 /etc/passwd
+  152  head /etc/passwd
+  153  head /etc/passwd | cat  -n 
+  154  head /etc/passwd | wc -l 
+  155  tail   /etc/passwd | wc -l 
+  156  cat -n  /etc/passwd
+  157  cat  -n  /etc/passwd 
+  158  cat  -n  /etc/passwd  |  head  -n 5  
+  159  cat  -n  /etc/passwd  |  tail    -n 5  
+  160  cat -n  /etc/passwd  |  head  -n 35  
+  161  cat -n  /etc/passwd  |  head  -n 35   | tail  -n  5
+  162  cat -n  /etc/passwd  |  head  -n 35   | tail  -n  5   >  /tmp/passwd  
+  163  cat  /tmp/passwd 
+  164  head  -n 35  /etc/passwd
+  165  head  -n 35  /etc/passwd | tail -n 5  
+  166  head  -n 35  /etc/passwd | tail -n 5  | cat  -n 
+  167  cat  -n  /etc/passwd  | head  -n 35  | tail -n 5  
+  168  lsblk  
+  169  lsblk  | cat  -n  
+  170  lsblk  | cat  -n   | head  -n 5
+  171  lsblk  | cat  -n   | head  -n 5 | tail  -n 3  
+  172  lsblk  | cat  -n   | head  -5 | tail  -3  
+  173  lscpu 
+  174  lscpu  | cat  -n  | head  -n 3  
+  175  lscpu  | cat  -n 
+  176  lscpu  | cat  -n | head  -n 13  
+  177  lscpu  | cat  -n | head  -n 13   | tail -n 1  
+  178  head  -n 5  /etc/passwd
+  179  lscpu  |  head  -n 3  
+  180  ls  /var/log
+  181  useradd soniya  
+  182  ls  /home  
+  183  cat  /etc/passwd
+  184  cat  /var/log/secure 
+  185  tail    /var/log/secure 
+  186  tail  -f  /var/log/secure
+  187  tail -f  /var/log/secure     /var/log/messages 
+  188  head -n 2  /etc/crontab 
+  189  tail   -n 2  /etc/crontab 
+  190  tail    /etc/crontab 
+  191  tail    /etc/crontab  | wc -l  
+  192  tail  -N    /etc/crontab  | wc -l  
+  193  tail  -n    /etc/crontab  | wc -l  
+  194  tail  -n   2  /etc/crontab  | wc -l  
+  195  history 
+  196  cat  /etc/passwd
+  197  sed   '1p'   /etc/passwd
+  198  sed  -n    '1p'   /etc/passwd
+  199  sed  -n    '1p;5p'   /etc/passwd
+  200  sed  -n    '1,5p'   /etc/passwd
+  201  sed  -n    '1p'   /etc/passwd
+  202  sed  -n    '$p'   /etc/passwd
+  203  sed  -n    '1p;$p'   /etc/passwd
+  204  sed  -n    '31,35p'   /etc/passwd
+  205  sed   -n   '1,5p;11,15p;21p;25p;31,35p'
+  206  sed   -n   '1,5p;11,15p;21p;25p;31,35p'  /etc/passwd
+  207  cat  -n  /etc/passwd
+  208  cat  -n  /etc/passwd | sed  -n  '1p'
+  209  cat  -n  /etc/passwd | sed  -n  '5p'
+  210  cat  -n  /etc/passwd | sed  -n  '1,5p'
+  211  cat  -n  /etc/passwd | sed  -n  '$p'
+  212  cat  -n  /etc/passwd | sed  -n  '1p;$p'
+  213  cat  -n  /etc/passwd | sed  -n  '1,5p'
+  214  cat  -n  /etc/passwd | sed  -n  '1,5p;11,15p'
+  215  cat  -n  /etc/passwd | sed  -n  '1,5p;11,15p;21p;25p;31,35p'
+  216  cat  -n  /etc/passwd | sed  -n  '1,5p;11,15p;21p;25p;31,35p'   >  /tmp/info  
+  217  cat  /info 
+  218  cat  /tmp/info 
+  219  history 
+  220  lscpu  | cat  -n 
+  221  lscpu  | cat  -n  | sed -n  '13p'
+  222  lscpu  | cat  -n  | sed  -n  '1,3p'
+  223  lscpu  | cat  -n  | head -n 3 
+  224  lscpu  | cat  -n  | sed  -n  '11,15p'
+  225  lscpu  | cat  -n  | head  -n 15 
+  226  lscpu  | cat  -n  | head  -n 15  | tail -n 5  
+  227  lsblk  
+  228  lsblk   | cat -n  
+  229  lsblk   | cat -n   | head  -n 6  
+  230  lsblk   | cat -n   | head  -n 6   | tail -n 3  
+  231  lsblk   | cat -n   | sed  -n  '3,6p'
+  232  lsblk   | cat -n   | sed  -n  '4,6p'
+  233  lsblk 
+  234  lsblk | cat -n  
+  235  lsblk | cat -n   | sed -n  '1p;5p'
+  236  lsblk | cat -n   | sed -n  '1p;5,$p'
+  237  lsblk | cat -n   | sed -n  '1p;5p;$p'
+  238  cat  /etc/passwd
+  239  head   /etc/passwd
+  240  head   /etc/passwd | grep root 
+  241  head   /etc/passwd | grep shutdown
+  242  head  /etc/passwd
+  243  head  /etc/passwd    >  /sample
+  244  cat   /sample 
+  245  grep  root    /sample 
+  246  grep -n    root    /sample 
+  247  grep    root    /sample 
+  248  sed  's/root/network/'   /sample 
+  249  sed  's/root/network/g'   /sample 
+  250  sed  's/root/network/g'   /sample   | grep  network 
+  251  sed  's/root/network/g'   /sample  
+  252  cat  /sample 
+  253  sed  's/root/network/g'   /sample  
+  254  sed  's/root/network/g'   /sample    >  /tmp/replace-data 
+  255  cat  /sample 
+  256  cat  /tmp/replace-data 
+  257  sed  '1s/root/network/g'   /sample 
+  258  sed  's/root/network/g'   /sample 
+  259  sed  '1,15s/root/network/g'   /sample 
+  260  sed  's/root/network/g'   /sample 
+  261  sed  's/ROOT/network/gi'   /sample 
+  262  sed  's/Shutdown/network/gi'   /sample 
+  263  sed  's/root/network/2'   /sample 
+  264  sed  's/root/network/2g'   /sample 
+  265  sed  's/root/network/g'   /sample 
+  266  cat  /sample  | grep root   
+  267  cat  /sample  | grep root    | sed 's/root/network/g'
+  268  cat  /sample  | grep root    | sed 's/root/network/gi'
+  269  cat  /sample  | grep root    | sed '1s/root/network/gi'
+  270  cat  /sample  | grep root    | sed '1,15s/root/network/gi'
+  271  cat  /sample  | grep root    | sed '1,15s/root/network/gi'  |  grep network  
+  272  cat  /sample  | grep root    | sed 's/root/network/gi'  |  grep network  
+  273  cat  /sample  
+  274  cat  /sample  | sed 's/root/network/g;s/shutdown/cloud/g'  
+  275  cat  /sample  | sed  -e  's/root/network/g'    -e  's/shutdown/cloud/g'  
+  276  cat  /sample |  grep root  
+  277  sed  's/root/network/g'  /sample 
+  278  sed  -i  's/root/network/g'  /sample 
+  279  cat /sample |  grep  network 
+  280  cat /sample |  grep  root  
+  281  sed  -i  's/network/root/g'  /sample 
+  282  cat /sample |  grep  root  
+  283  cat /sample |  grep  network 
+  284  cat /sample 
+  285  sed  -i   's/:/>>/g'  /sample 
+  286  cat  /sample 
+  287  sed  -i   's/>>/:/g'  /sample 
+  288  cat  /sample 
+  289  sed  -i   's/r/ ram /g'  /sample 
+  290  cat /sample 
+  291  sed  -i   's/ ram /r/g'  /sample 
+  292  cat /sample 
+  293  sed  '5s/^/#/' /sample 
+  294  cat /sample 
+  295  sed  -i   '5s/^/#/' /sample 
+  296  cat /sample 
+  297  sed  -i   '5s/^#//' /sample 
+  298  cat /sample 
+  299  sed  -i   '5,8s/^/#/' /sample 
+  300  cat  -n  /sample 
+  301  sed  -i   '5,8s/^#//' /sample 
+  302  cat  -n  /sample 
+  303  history 
+  304  cat  /sample 
+  305  sed  's/://g'   /sample 
+  306  sed  's/:/ /g'   /sample 
+  307  cat /sample 
+  308  cat -n  /sample 
+  309  cat -n  /sample | sed  '5d'
+  310  cat -n  /sample | sed  '5,7d'
+  311  cat -n  /sample | sed  '5,7!d'
+  312  cat -n  /sample | sed  '5,7!d'   >  /new-fil e 
+  313  cat -n  /sample | sed  '5,7!d'   >  /new-file 
+  314  cat  /new-fil
+  315  cat  /new-file
+  316  cat -n  /sample | sed  '5,7!d'
+  317  cat -n  /sample | sed  '1,5d'
+  318  cat -n  /sample | sed  '1,5!d'
+  319  cat -n  /sample | sed  '7d'
+  320  cat -n  /sample | sed  '7!d'
+  321  cat -n  /sample | sed -n   '7p'
+  322  cat -n  /sample | sed -n   '7!p'
+  323  sed  -i  '5,7d'  /sample 
+  324  cat -n /sample 
+  325  cat  /sample 
+  326  sed  '5i krishna sir'    /sample 
+  327  sed  '5a krishna sir'    /sample 
+  328  sed  -i   '5i krishna sir'    /sample 
+  329  cat  -n  /sample 
+  330  sed  -i   '7a krishna sir'    /sample 
+  331  cat  -n  /sample 

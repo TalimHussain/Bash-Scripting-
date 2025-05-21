@@ -1,0 +1,58 @@
+Day-3
+1- cat    ==> done
+2- tac    ==> done
+3- wc     ==> done
+4- ;      ==> done
+5- |      ==> done
+6- >      ==> done
+7- >>     ==> done
+8- /dev/null ==> done
+9-  tee      ==> done
+10- tee  -a  ==> done
+11- head
+12- tail 
+13- grep
+14- egrep
+15- fgrep 
+16- uniq
+17- sed 
+17- cut 
+18- awk 
+18- sort
+19- tr
+20- df 
+21- lsblk 
+22- free 
+23- lscpu 
+24- ls
+25- coloumn
+26- exit status
+************************************************************************************* 
+
+Task-1 cat ==> it is use to read content of any file.
+Task-2 tac ==> it is use to read content of any file in reverse order.
+Task-3 wc [ word count]  ==> it is use to count numbre of line , characters and number of words from any file or from any output
+                             of any commands ?
+task-4   ;   semicolon     ==> it is use to run more then one commands in  a sequencing order.
+task-5   |   pipe symbol   ==> it is use to join more then one command ...and it act as a input and output redirection symbol.
+Task-6
+task-7
+
+    >    ==> it is use to store output of any command into any file.
+
+    >>   ==> it is to append output of any command into any existing file without data overrighting.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

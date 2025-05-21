@@ -1,0 +1,318 @@
+    1  cat  /etc/passwd 
+    2  cat -n    /etc/passwd 
+    3  sed   '1p'  /etc/passwd 
+    4  sed  -n    '1p'  /etc/passwd 
+    5  sed  -n    '5p'  /etc/passwd 
+    6  sed  -n    '1,5p'  /etc/passwd 
+    7  sed  -n    '1p;5p'  /etc/passwd 
+    8  sed  -n    '1p'  /etc/passwd 
+    9  sed  -n    '$p'  /etc/passwd 
+   10  sed  -n    '1p;$p'  /etc/passwd 
+   11  sed  -n    '1,5p;11,15p;$p'  /etc/passwd 
+   12  history 
+   13  cat  -n  /etc/passwd  | sed  -n  '1p'
+   14  cat  -n  /etc/passwd  | sed  -n  '2p'
+   15  cat  -n  /etc/passwd  | sed  -n  '1,5p'
+   16  cat  -n  /etc/passwd  | sed  -n  '1p;$p'
+   17  cat  -n  /etc/passwd  | sed  -n  '1,5p;11,15p'
+   18  head   /etc/passwd 
+   19  head   /etc/passwd   >  /info  
+   20  cat  /info 
+   21  cat  -n  /info 
+   22  cat  -n  /info  | sed  '5d'
+   23  cat  -n  /info  | sed  '1,5d'
+   24  cat  -n  /info  | sed  '1,5d'  >  /new-file 
+   25  cat -n  /info 
+   26  cat  -n  /new-file 
+   27  cat  -n  /info  | sed  '1d;$d'
+   28  cat  -n  /info  | sed  '1,3d;$d'
+   29  cat -n  /info 
+   30  sed   '5d'  /info 
+   31  sed  -i   '5d'  /info 
+   32  cat -n /info 
+   33  sed  -i   '5,7d'  /info 
+   34  cat -n  /info 
+   35  cat -n    /info 
+   36  sed   '2,4d'  /info 
+   37  cat /info 
+   38  sed   '2,4!d'  /info 
+   39  cat -n  /info 
+   40  sed  -n  '1,3p'  /info 
+   41  sed  -n  '1,3!p'  /info 
+   42  sed   '2,4!d'  /info 
+   43  sed  -i    '2,4!d'  /info 
+   44  cat  -n /info 
+   45  cat  -n  /etc/
+   46  cat  /info 
+   47  sed  '1d'  /info 
+   48  sed  '1!d'  /info 
+   49  cat -n /info | sed  '1d'
+   50  cat -n /info | sed  '1!d'
+   51  head  /etc/passwd
+   52  head  /etc/passwd > /info 
+   53  cat /info 
+   54  cat -n  /info 
+   55  grep root   /info 
+   56  grep root   /info  |  sed   's/root/network/'
+   57  grep root   /info  |  sed   's/root/network/g'
+   58  grep root   /info  |  sed   's/root/network/1'
+   59  grep root   /info  |  sed   's/root/network/2'
+   60  grep root   /info  |  sed   's/root/network/2g'
+   61  grep root   /info  |  sed   's/root/network/g'
+   62  grep root   /info  |  sed   's/ROOT/network/gi'
+   63  grep root   /info  |  sed   '1s/root/network/gi'
+   64  grep root   /info  |  sed   '1,15s/root/network/gi'
+   65  cat -n  /info 
+   66  grep root   /info  |  sed   's/root/network/gi'
+   67  grep root   /info  |  sed   's/daemon/cloud/gi'
+   68  cat  /info | grep -E 'daemon|root'
+   69  cat  /info | grep -E 'daemon|root' | sed  's/root/network/g;s/daeomon/cloud/g'
+   70  cat  /info | grep -E 'daemon|root' | sed  's/root/network/g;s/daemon/cloud/g'
+   71  cat  /info | grep -E 'daemon|root' | sed  -e  's/root/network/g'  -e 's/daemon/cloud/g'
+   72  sed  's/root/network/g;s/daemon/cloud/g'  /info 
+   73  sed  -i   's/root/network/g;s/daemon/cloud/g'  /info 
+   74  cat  /info 
+   75  sed  -i   's/network/root/g;s/cloud/daemon/g'  /info 
+   76  cat  /info 
+   77  sed  's/:/ >> /g' /info 
+   78  grep  '^root'  /etc/passwd
+   79  cat  /etc/sudoers 
+   80  grep  #    /etc/sudoers 
+   81  grep   '#'    /etc/sudoers 
+   82  grep   ^[#]    /etc/sudoers 
+   83  grep   ^[^#]    /etc/sudoers 
+   84  grep   ^[#]    /etc/sudoers 
+   85  grep   ^[^#]    /etc/sudoers 
+   86  cat  -n  /etc/sudoers 
+   87  sed  -n  '99p'  /etc/sudoers 
+   88  sed   '99s/^/#/'   /etc/sudoers 
+   89  sed   -i  '99s/^/#/'   /etc/sudoers 
+   90  sed  -n   '99p'  /etc/sudoers 
+   91  sed   -i  '99s/^#//'   /etc/sudoers 
+   92  sed  -n   '99p'  /etc/sudoers 
+   93  cat /info 
+   94  cat -n  /info 
+   95  sed   '6a raj kumar yadav'  /info 
+   96  sed   '6i raj kumar yadav'  /info 
+   97  sed    -i   '6i raj kumar yadav'  /info 
+   98  cat -n  /info 
+   99  sed    -i   '7a raj kumar yadav'  /info 
+  100  cat -n  /info 
+  101  sed  -n   '99p'  /etc/sudoers 
+  102  sed     '99s/^/#/'  /etc/sudoers 
+  103  sed    -i   '99s/^/#/'  /etc/sudoers 
+  104  sed  -n   '99p'  /etc/sudoers 
+  105  sed    -i   '99s/^#//'  /etc/sudoers 
+  106  sed  -n   '99p'  /etc/sudoers 
+  107  useradd  alok  
+  108  passwd  alok  
+  109  history 
+  110  sed  -n   '99p'  /etc/sudoers 
+  111  sed    -i   '99s/^/#/'  /etc/sudoers 
+  112  sed  -n   '99p'  /etc/sudoers 
+  113  sed    -i   '99s/^#//'  /etc/sudoers 
+  114  sed  -n   '99p'  /etc/sudoers 
+  115  useradd soniya  
+  116  passwd  soniya  
+  117  echo "soniya ALL=(ALL)  ALL"   >  /etc/sudoers.d/soniya 
+  118  cat  /etc/sudoers.d/soniya 
+  119  echo "alok ALL=(ALL)  ALL"  |  tee   /etc/sudoers.d/alok  
+  120  cat -n  /etc/samba/smb.conf 
+  121       
+  122  grep root  /etc/passwd  
+  123  grep root  /etc/passwd   | head  -1  
+  124  grep root  /etc/passwd   | head  -1  | grep -o root  
+  125  grep root  /etc/passwd   | head  -1  | grep -o root   |  uniq  
+  126  a=`grep root  /etc/passwd   | head  -1  | grep -o root   |  uniq`  
+  127  echo  "my login name is = $a"
+  128  cat /etc/passwd
+  129  useradd  user1
+  130  useradd  user2
+  131  useradd  user3
+  132  useradd  user4
+  133  useradd  user5
+  134  cut  -c1  /etc/passwd 
+  135  tail -n 5   /etc/passwd 
+  136  tail -n 5   /etc/passwd  | cut  -c1 
+  137  tail -n 5   /etc/passwd  | cut  -c1,3 
+  138  tail -n 5   /etc/passwd  | cut  -c1-5 
+  139  tail -n 5   /etc/passwd  | cut  -c1-5   >  /new-user-file  
+  140  cat  /new-user-file 
+  141  tail -n 5   /etc/passwd  
+  142  tail -n 5   /etc/passwd  | cut   -f1 
+  143  tail -n 5   /etc/passwd  | cut   -d:  -f1 
+  144  tail -n 5   /etc/passwd  | cut   -d:  -f1,6 
+  145  tail -n 5   /etc/passwd  | cut   -d:  -f1,3,4 
+  146  tail -n 5   /etc/passwd  | cut   -d:  -f1-4 
+  147  head  -1  /etc/passwd
+  148  head  -1  /etc/passwd | cut  -d:  -f1  
+  149  head  -1  /etc/passwd | cut  -d:  -f1,7  
+  150* m  new-user.sh  
+  151  vim new-user.sh 
+  152  sh  new-user.sh 
+  153  vim new-user.sh 
+  154  sh new-user.sh 
+  155  vim new-user.sh 
+  156  cat  /var/log/secure 
+  157  cat  /var/log/secure | tail -n 5  
+  158  cat  /var/log/secure | tail -n 5  | cut -d' '  -f1-4 
+  159  df  -h 
+  160  df  -h  | cut  -d' '  -f1 
+  161  df  -h  | cut  -d' '  -f1,2 
+  162  df  -h  | cut  -d' '  -f1,3 
+  163  df  -h  | cut  -d' '  -f1,4 
+  164  df  -h  | cut  -d' '  -f1 
+  165  df -h 
+  166  df -h | awk  '{print $1}'
+  167  df -h | awk  '{print $1,$6}'
+  168  df -h | awk  '{print $1,$6}' | column -t 
+  169  cat  /etc/passwd  
+  170  df -h | awk  '{print $1,$6}' | column -t 
+  171  df -h | awk  '{print $1,$5}' | column -t 
+  172  cat  /etc/passwd 
+  173  cat  /etc/passwd | awk  '{print $1}'
+  174  cat  /etc/passwd | awk -F':'  '{print $1}'
+  175  cat  /etc/passwd | awk  '{print $1}' FS=':'
+  176  cat  /etc/passwd | awk  '{print $1,$6}' FS=':'
+  177  cat  /etc/passwd | awk -F:  '{print $1}' 
+  178  cat  /etc/passwd | awk -F:  '{print $1,$6}' 
+  179  cat  /etc/passwd | tail -n 5 | awk -F:  '{print $1,$6}' 
+  180  cat  /etc/passwd | tail -n 5 | awk -F:  '{print $1,$6}'  OFS=':'
+  181  cat  /etc/passwd | tail -n 5 | awk -F:  '{print $1,$6}'  OFS='='
+  182  cat  /etc/passwd | tail -n 5 | awk -F:  '{print $1,$6}'  OFS='      '
+  183  cat  /etc/passwd | tail -n 5 | awk -F:  '{print $1,$6}'  OFS=' ram     '
+  184  tail -n 15 /etc/passwd
+  185  tail -n 15 /etc/passwd | awk  -F':'   '$3>999'
+  186  df  -h 
+  187  df  -h  | grep  "root"
+  188  df  -h  | grep  "root" | awk '{print $5}'   
+  189  df  -h  | grep  "root" | awk '{print $5}'   | cut  -d'%'  -f1  
+  190  vim spacetest.sh 
+  191  sh  spacetest.sh 
+  192  vim spacetest.sh 
+  193  sh  spacetest.sh 
+  194  vim spacetest.sh 
+  195  sh  spacetest.sh 
+  196  vim spacetest.sh 
+  197  sh  spacetest.sh 
+  198  vim spacetest.sh 
+  199  sh  spacetest.sh 
+  200  mail  
+  201  ifconfig 
+  202  ifconfig  |  grep  inet  
+  203  ifconfig  |  grep -w   inet  
+  204  ifconfig  |  grep -w   inet  | head  -1 
+  205  ifconfig  |  grep -w   inet  | head  -1  |  awk  '{print $1}'
+  206  ifconfig  |  grep -w   inet  | head  -1  |  awk  '{print $2}'
+  207  ifconfig  |  grep -w   inet  | head  -1  |  awk  '{print $2,$4}'
+  208  ifconfig  |  grep -w   inet  | head  -1  |  awk  '{print $2,$4}'  OFS=' netmask is '
+  209  ifconfig |  ether  
+  210  ifconfig |  grep  ether  
+  211  ifconfig |  grep  ether   | grep head  -1  
+  212  ifconfig |  grep  ether   | head  -1  
+  213  ifconfig |  grep  ether   | head  -1   | awk  '{print $2}'
+  214  ifconfig  |  grep -w   inet  | head  -1  |  awk  '{print $2}'
+  215  ifconfig |  grep  ether   | head  -1   | awk  '{print $2}'
+  216  vim  network-test.sh  
+  217  sh   network-test.sh  
+  218  df  -h 
+  219  df  -h  | awk  '{print $5}'
+  220  df  -h  | awk  '{print $5}' | cut  -d'%' -1  
+  221  df  -h  | awk  '{print $5}' | cut  -d'%' -f1  
+  222  df  -h  | awk  '{print $5}' | cut  -d'%' -f1   |  grep -v  Use
+  223  df  -h  | awk  '{print $5}' | cut  -d'%' -f1   |  grep -v  Use | sort 
+  224  df  -h  | awk  '{print $5}' | cut  -d'%' -f1   |  grep -v  Use | sort -n  
+  225  df  -h  | awk  '{print $5}' | cut  -d'%' -f1   |  grep -v  Use | sort -r  -n  
+  226  df  -h  | awk  '{print $5}' | cut  -d'%' -f1   |  grep -v  Use | sort -r  -n   | head  -1 
+  227  du -sh  /etc  
+  228  ls  /
+  229  find  /    -name  passwd  
+  230  find  /etc      -name  passwd  
+  231  find  /usr        -name  passwd  
+  232  find    -name  passwd  
+  233  find  .   -name  passwd  
+  234  find  .   -name  anaconda-ks.cfg 
+  235  ls  
+  236  find  /    -name "spacetest.sh"
+  237  find  /    -name "spacetest.sh"  2>  /dev/null  
+  238  find /  -name  "useradd"
+  239  find /  -name  "shadow"
+  240  find /etc  -name   "*.conf"
+  241  find /etc  -name   "*.py"
+  242  find  /etc  -name   PASSWD 
+  243  find  /etc  -iname   PASSWD 
+  244  find  /etc  -iname  useradd  
+  245  touch  /tmp/xyz  
+  246  find  /  -name xyz  
+  247  ls  -i  /tmp/xyz 
+  248  find  /   -inum  77973484
+  249  find  /etc     -size  +5M  
+  250  du -sh  /etc/udev/hwdb.bin
+  251  find  /etc     -size  +2M  
+  252  find  /etc     -size  +2M   -size  -9M   
+  253  mkdir   /data  
+  254  cd /data
+  255  touch abc1 abc2 abc3 abc4 abc5
+  256  mkdir d1 d2 d3 d4 d5
+  257  ls 
+  258  ls  -F 
+  259  cd
+  260  find  /data  -type  f 
+  261  find  /data  -type  d
+  262  find  /data  -type  l 
+  263  find  /etc  -type f  
+  264  find  /etc  -type f   | wc -l  
+  265  find  /etc  -type d   | wc -l  
+  266  find  /etc  -type l   | wc -l  
+  267  find  /etc   -type f  -size  +2M   
+  268  find  /data  -type f  
+  269  find  /data  ! -type f  
+  270  find  /data  ! -type d  
+  271  find  /data  -empty
+  272  echo  "hello"  >  /data/abc1 
+  273  cat  /data/abc1
+  274  find  /data  -empty
+  275  find  /data  ! -empty
+  276  find  /data -type f  
+  277  find  /data -type f 
+  278  mkdir  /linux  
+  279  find /data  -type f  -exec  cp -rf  {}  /linux 
+  280  find /data  -type f  -exec  cp -rf  {}  /linux  \;
+  281  ls  /linux  
+  282  find  /etc  -size  +2M  
+  283  find  /etc  -size  +2M   -exec du -sh  {}   \; 
+  284  find  /etc  -size  +2M   -exec ls  -i  {}   \; 
+  285  find  /etc  -size  +2M   -exec ls  -li  {}   \; 
+  286  find  /etc  -size  +2M   -exec cp -rf  {}   /linux    \; 
+  287  ls  /linux
+  288  find  /linux -size  +2M 
+  289  find  /linux -size  +2M  -exec rm -rf  {}  \;  
+  290  ls  /linux 
+  291  find /linux  -empty
+  292  find /linux  ! -empty
+  293  su - deep
+  294  find  /    -user   deep  
+  295  find  /    -user   deep    2>  /dev/null 
+  296  find  /    -user   deep    2>  /dev/null  -exec  cp -rf  {}  /linux  \;
+  297  ls  /linux  
+  298  find  /etc  -size  +2M 
+  299  find  /etc  -size  +2M -exec  cp -rf  {}  /linux  \;
+  300  ls  /linux  
+  301  find    /linux   -size  +2M  
+  302  find    /linux   -size  +2M  | xargs rm -rf   
+  303  ls  
+  304  cp -rf  *.sh   /tmp  
+  305  ls  
+  306  ls  a*
+  307  ls  a* | xargs  rm -rf  
+  308  ls
+  309  ls /etc  
+  310  ls /etc   | xargs  du -sh 
+  311  ls
+  312  ls    | xargs  du -sh 
+  313  ls    |   du -sh 
+  314  ls  *
+  315  du -sh    *
+  316  find  /    -xdev  -name  "*.log"  
+  317  history 
+  318  history   >  /root/Desktop/Shell-Class-Day-5

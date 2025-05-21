@@ -1,0 +1,225 @@
+    1  who 
+    2  who  >  /report  
+    3  cat  /report 
+    4  date  >>  /report 
+    5  cat  /report 
+    6  echo  "this is my final report"  >>  /report 
+    7  cat  /report 
+    8  echo "hello" >  /abc  
+    9* cat  /ab
+   10  echo "hello" >  /dev/null  
+   11  cat  /dev/null  
+   12  who  | tee  /new-file 
+   13  cat  /new-file 
+   14  date |  tee  -a  /new-file 
+   15  cat  /new-file 
+   16  echo  "this is  my final report"  |  tee -a  /new-file 
+   17  cat  /new-file 
+   18  cat  /etc/passwd 
+   19  head  /etc/passwd  
+   20  tail  /etc/passwd 
+   21  head   -n  5  /etc/passwd 
+   22  head   -5  /etc/passwd 
+   23  tail -n 3  /etc/passwd 
+   24  tail -3  /etc/passwd 
+   25  cat -n   /etc/passwd | head 
+   26  cat -n   /etc/passwd | tail 
+   27  cat -n   /etc/passwd | head  -n 5  
+   28  cat -n   /etc/passwd | tail   -n 5  
+   29  cat -n  /etc/passwd 
+   30  cat -n  /etc/passwd | head  -n 30 
+   31  cat -n  /etc/passwd | head  -n 30  | tail -n 5  
+   32  lscpu 
+   33  lscpu  | cat -n  
+   34  lscpu  | cat -n   | head  -n 15
+   35  lscpu  | cat -n   | head  -n 15  | tail -n 5
+   36  lscpu  | cat -n   | head  -n 13 
+   37  lscpu  | cat -n   | head  -n 13  | tail -n 1 
+   38  lscpu   | head  -n 13  | tail -n 1 
+   39  df -h  
+   40  df -h   | cat -n  
+   41  df -h   | cat -n   | head  -n 7  
+   42  df -h   | cat -n   | head  -n 7   | tail -n 1 
+   43  sed     '1p'  /etc/passwd 
+   44  sed     '1p'   /etc/passwd 
+   45  sed   -n     '1p'   /etc/passwd 
+   46  sed       '1p'   /etc/passwd 
+   47  sed     -n    '1p'   /etc/passwd 
+   48  head  -n 5   /etc/passwd
+   49  sed     -n    '5p'   /etc/passwd 
+   50  sed     -n    '1,5p'   /etc/passwd 
+   51  sed     -n    '1p;5p'   /etc/passwd 
+   52  cat  -n  /etc/passwd | sed  '1p'
+   53  cat  -n  /etc/passwd | sed  -n   '1p'
+   54  cat  -n  /etc/passwd | sed  -n   '5p'
+   55  cat  -n  /etc/passwd | sed  -n   '1,5p'
+   56  cat  -n  /etc/passwd | sed  -n   '1p;5p'
+   57  cat  -n  /etc/passwd | sed  -n   '1p'
+   58  useradd soniya  
+   59  cat  -n  /etc/passwd | sed  -n   '1p'
+   60  cat  -n  /etc/passwd | sed  -n   '$p'
+   61  cat  -n  /etc/passwd | sed  -n   '1p;$p'
+   62  cat  -n  /etc/passwd | sed  -n   '1,5p;11,15p'
+   63  cat  -n  /etc/passwd | sed  -n   '1,5p;11,15p;$p'
+   64  cat  -n  /etc/passwd | sed  -n   '26,30p'
+   65  cat  -n  /etc/passwd | sed  -n   '26,30p'   >   /new-file  
+   66  cat  /new-file 
+   67  lscpu | head -n 3 
+   68  lscpu | sed  -n  '1,3p'
+   69  lscpu | sed  -n  '1,3p'   >>  /new-file 
+   70  cat  /new-file 
+   71  df  -h  
+   72  df  -h  | cat -n  
+   73  df  -h  | cat -n   | head  -n 7 
+   74  df  -h  | cat -n   | head  -n 7  | tail -n 1
+   75  df  -h  | cat -n   | sed  -n '7p'
+   76  lsblk  
+   77  lsblk   | cat  -n  
+   78  lsblk   | cat  -n   | sed  -n '6p'
+   79  lsblk   | cat  -n   | sed  -n '5p'
+   80  cat  /etc/passwd
+   81  grep  root    /etc/passwd
+   82  grep  ftp     /etc/passwd
+   83  grep  games       /etc/passwd
+   84  grep  --color   ftp     /etc/passwd
+   85  alias  
+   86  grep  -n  root  /etc/passwd  
+   87  grep  -c   root  /etc/passwd  
+   88  grep   ROOT  /etc/passwd  
+   89  grep  -i    ROOT  /etc/passwd  
+   90  grep  -i -n root  /etc/passwd 
+   91  grep      dns   /etc/passwd 
+   92  grep   -i      dns   /etc/passwd 
+   93  grep -n    -i      dns   /etc/passwd 
+   94  grep root  /etc/passwd  
+   95  grep -o   root  /etc/passwd  
+   96  grep -i  -n   -o   root  /etc/passwd  
+   97  grep -o   root  /etc/passwd  
+   98  grep -o   root  /etc/passwd    >    /report  
+   99  cat  /report 
+  100  grep  root  /etc/passwd  
+  101  grep  -v   root  /etc/passwd  
+  102  grep  root  /etc/passwd   | wc -l  
+  103  grep -v    root  /etc/passwd   | wc -l  
+  104  grep  root  /etc/passwd  
+  105  grep  root  /etc/passwd   >  /tmp/matched  
+  106  grep  -v   root  /etc/passwd   >  /tmp/un-matched  
+  107  cat  /tmp/matched 
+  108  cat  /tmp/un-matched 
+  109  grep  -n       ftp  /etc/passwd  
+  110  grep  -A2   -n       ftp  /etc/passwd  
+  111  grep  -A2   -n  root   /etc/passwd  
+  112  grep  -A2   -n       ftp  /etc/passwd  
+  113  grep  -A3   -n       ftp  /etc/passwd  
+  114  grep  -B3   -n       ftp  /etc/passwd  
+  115  grep  -C2   -n       ftp  /etc/passwd  
+  116  useradd  manish 
+  117  useradd  manisha 
+  118  tail -n 2  /etc/passwd
+  119  grep  manish  /etc/passwd
+  120  grep  -w   manish  /etc/passwd
+  121  grep  rsync  /etc/services 
+  122  grep  873  /etc/services 
+  123  grep  -w  873  /etc/services 
+  124  grep -w    rsync  /etc/services 
+  125  grep   root  /etc/passwd
+  126  grep   'root'  /etc/passwd
+  127  grep   "root"  /etc/passwd
+  128  cat  /etc/passwd
+  129  grep  "System Daemon"  /etc/passwd
+  130  grep  'System Daemon'  /etc/passwd
+  131  grep  System  /etc/passwd
+  132  grep  'System Daemon'  /etc/passwd
+  133  grep   root  /etc/passwd  
+  134  grep   '^root'  /etc/passwd  
+  135  grep   '^ftp'  /etc/passwd  
+  136  grep   'bash$'  /etc/passwd  
+  137  grep   'bash$'  /etc/passwd   | wc -l 
+  138  grep   'nologin$'  /etc/passwd   | wc -l 
+  139  cat  /etc/passwd  |  grep root  
+  140  cat  /etc/passwd  |  grep -n  root  
+  141  lscpu 
+  142  lscpu  | grep -i archiecture  
+  143  lscpu   
+  144  lscpu   | grep -i Architecture
+  145  lscpu   | grep -i architecture
+  146  lscpu   | grep -i 'model name'
+  147  lsblk 
+  148  lsblk  | grep sda1
+  149  df  -h  
+  150  df  -h   | grep sda1 
+  151  df  -h   | grep sda1  | grep -o sda1
+  152  ls
+  153  ls | grep -i ana 
+  154  fdisk  -l  
+  155  fdisk  -l   | grep sda1
+  156  useradd user1
+  157  useradd user2
+  158  useradd user3
+  159  tail -n 3 /etc/passwd
+  160  tail -n 3 /etc/passwd | cut  -d:  -f1
+  161  tail -n 3 /etc/passwd | cut  -d:  -f6
+  162  a=`tail -n 3 /etc/passwd | cut  -d:  -f6`
+  163  echo "$a"
+  164  grep   root  /etc/passwd
+  165  grep   root ftp games  /etc/passwd
+  166  egrep  -E   'root|ftp|games'   /etc/passwd
+  167  egrep    'root|ftp|games'   /etc/passwd
+  168  egrep  -n  -i     'root|ftp|games'   /etc/passwd
+  169  grep  -E   -n  -i     'root|ftp|games'   /etc/passwd
+  170  egrep    -n  -i     'root|ftp|games'   /etc/passwd
+  171  fgrep   root /etc/passwd   /etc/group  /etc/shadow
+  172  fgrep  -n     root /etc/passwd   /etc/group  /etc/shadow
+  173  grep   -F  -n     root /etc/passwd   /etc/group  /etc/shadow
+  174  grep    root /etc/passwd   /etc/group  /etc/shadow
+  175  grep -E  'root|ftp|games'   /etc/passwd  /etc/group 
+  176  cat  /etc/default/useradd 
+  177  grep -i skel   /etc/default/useradd 
+  178  grep -i skel   /etc/default
+  179  grep  -R  -i skel   /etc/default
+  180  grep  -i skel   /etc/default/* 
+  181  find   /etc   -name default  
+  182  find   /etc   -name  username  
+  183  find   /etc   -name  useradd 
+  184  grep -i skel  /etc/default/useradd 
+  185  grep -R  -i skel  /etc/default/
+  186  grep -R -n    -i skel  /etc/default/
+  187  grep  -w  873  /etc/se
+  188  grep  -w  873  /etc/services 
+  189  grep  -o -w  873  /etc/services 
+  190  grep  -o -w  873  /etc/services  |  uniq 
+  191  grep  -o -w  873  /etc/services  |  uniq  -c  
+  192  grep -o root  /etc/passwd 
+  193  grep -o root  /etc/passwd  | uniq
+  194  grep -o root  /etc/passwd  | uniq   -c 
+  195  grep  -E  -o  'root|games|ftp'   /etc/passwd
+  196  grep  -E  -o  'root|games|ftp'   /etc/passwd |  uniq 
+  197  grep  -E  -o  -i   'root|games|ftp'   /etc/passwd |  uniq 
+  198  grep    root    /etc/*  
+  199  lsblk  
+  200  lsblk   |  grep  -i  swap
+  201  ls  /home |  grep soniya 
+  202  grep  100  /etc/passwd
+  203  grep  -w   100  /etc/passwd
+  204  grep  -w   100  /etc/passwd | sed  's/100/krishna/g'
+  205  grep  -w   100  /etc/passwd | sed  's/100/454545455/g'
+  206  history 
+  207  grep  -w   100  /etc/passwd | sed  's/100/454545455/'
+  208  grep root  /etc/passwd
+  209  grep root  /etc/passwd | head  -1  
+  210  grep root  /etc/passwd | head  -1   | sed 's/root/network/'
+  211  grep root  /etc/passwd | head  -1   | sed 's/root/network/2'
+  212  grep root  /etc/passwd | head  -1   | sed 's/root/network/g'
+  213  grep root  /etc/passwd | head  -1   | sed 's/root/network/2g'
+  214  head   /etc/passwd >   /report
+  215  grep root  /report 
+  216  sed 's/root/network/g'  /report 
+  217  sed   -i  's/root/network/g'  /report 
+  218  cat /report   | grep root  
+  219  cat /report   | grep network  
+  220  sed   -i  's/network/root/g'  /report 
+  221  cat /report   | grep network  
+  222  cat /report   | grep root  
+  223  history 
+  224  history  >  /root/shell-class-Day-4-commands
+  225  history  >  /root/Desktop/shell-class-Day-4-commands

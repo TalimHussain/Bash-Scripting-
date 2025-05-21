@@ -1,0 +1,319 @@
+*****************
+While Loop 
+*****************
+Example-1
+
+#!/bin/bash
+ 
+num=1
+while [ $num -le 5 ]
+do
+   echo "$num"
+   let num++
+done
+
+*****************
+
+Example-2  Infinite While Loop
+
+
+
+#!/bin/bash
+ 
+while true
+do
+  echo "Press CTRL+C to Exit"
+done
+
+******************
+
+Example-3   while Loop in C-Style 
+
+#!/bin/bash
+ 
+num=1
+while((num <= 5))
+do
+   echo $num
+   let num++
+done
+
+******************
+
+Example-4  While Loop Read File Content
+
+This is a useful feature provided by while loop to read file content line by line.
+
+#!/bin/bash
+ 
+while read myvar
+do
+   echo $myvar
+done < /tmp/filename.txt
+
+********************
+
+Example-5 
+
+#!/bin/bash
+ 
+read -p "Enter first string: " str1
+read -p "Enter second string: " str2
+if [ "$str1" == "$str2" ]
+then
+  echo "Both strings are same"
+else
+  echo "Both strings are different"
+fi
+********************
+Example-6
+#!/bin/bash
+ 
+while :
+do
+	read -p "Enter two numnbers ( - 1 to quit ) : " a b
+	if [ $a -eq -1 ]
+	then
+		break
+	fi
+	ans=$(( a + b ))
+	echo $ans
+done
+
+********************
+until loop Example
+********************
+Example-1
+#!/bin/sh
+
+a=0
+
+until [ ! $a -lt 10 ]
+do
+   echo $a
+   a=`expr $a + 1`
+done
+
+*******************
+
+Example-2
+
+#!/bin/bash
+i=1
+until [ $i -gt 6 ]
+do
+	echo "Welcome $i times."
+	i=$(( i+1 ))
+done
+
+*******************
+
+Example-3 will ask the user for input of their name until they type exit to quit the program:
+
+#!/bin/bash
+RESPONSE="FOO"
+
+# increase file size until 1KB
+until [ "$RESPONSE" = "exit" ]
+do
+  echo -n "Enter your name or 'exit' to quit this program: "
+  read RESPONSE
+  if [ "$RESPONSE" != "exit" ]; then
+    echo "Hello $RESPONSE"
+  fi
+done
+
+echo "Thank you for playing this game"
+
+
+*************************************************
+Example-4
+
+#!/bin/bash
+ 
+count=10
+i=20
+ 
+# until loop with single condition
+until [ $i -lt $count ]; do
+   echo "$i"
+   let i--
+done
+
+**************************************************
+Example-5
+#!/bin/bash
+ 
+count=10
+a=20
+b=16
+ 
+# until loop for multiple conditions in expression
+until [[ $a -lt $count || $b -lt count ]]; do
+   echo "a : $a, b : $b"
+   let a--
+   let b--
+done
+************************************************
+Example-6  This example monitors the size of the logfile, once the logfile size reaches 2000bytes,
+           it takes the copy of that logfile.
+
+file=/tmp/logfile
+until [ $(ls -l $file | awk '{print $5}') -gt 2000 ]
+        do
+            echo "Sleeping for next 5 seconds"
+            sleep 5
+        done
+date=`date +%s`
+cp $file "$file-"$date.bak
+
+*************************************************
+Example-7
+This example is used to wait till the machine comes up before doing a ssh to that machine.
+The until loop statement ends only when the ping gives the responses.
+
+#! /bin/bash
+
+read -p "Enter IP Address:" ipadd
+echo $ipadd
+until ping -c 1 $ipadd
+do
+        sleep 60;
+done
+ssh $ipadd
+
+
+************************************************
+case Example-1
+********************************************************
+$ cat case-example.sh 
+
+#!/bin/bash
+
+case "$1" in
+'start')
+echo "Starting application"
+systemctl start crond ;;
+'stop')
+echo "Stopping application"
+systemctl stop crond ;;
+'restart')
+echo "Restarting application"
+systemctl restart crond ;;
+esac
+
+$ ./startpcapp start
+
+********************************************************
+case  Example-2
+
+#!/bin/bash
+printf 'Which Linux distribution do you know? '
+read DISTR
+
+case $DISTR in
+     ubuntu)
+          echo "I know it! It is an operating system based on Debian."
+          ;;
+     centos|rhel)
+          echo "Hey! It is my favorite Server OS!"
+          ;;
+     windows)
+          echo "Very funny..."
+          ;; 
+     *)
+          echo "Hmm, seems i've never used it."
+          ;;
+esac
+
+*********************************************************
+case  Example-3
+
+#!/bin/bash
+shopt -s nocasematch
+echo -n "Enter the name of a country: "
+read country
+
+echo -n "The capital of $country is "
+case $country in
+Pakistan)
+echo -n "Islamabad";;
+Fiji)
+echo -n "Suva";;
+UK | "United Kingdom")
+echo -n "London";;
+Turkey)
+echo -n "Ankara";;
+USA)
+echo -n "Washington DC";;
+*)
+echo -n "Information not available";;
+esac
+echo ""
+
+***********************************************
+
+case Example-4  
+
+Patterns Matching in Case Statement
+You can use wildcard characters like *,? and [] with the case statement. 
+But still, some of the braces expansion still not work. 
+Now, you can set shopt -s extglob to use extended pattern matching.
+
+#!/bin/bash
+ 
+read -p "Enter a string:" choice
+shopt -s extglob
+case $choice in
+     a*)                    ### matches anything starting with "a"
+          #script here
+          ;;
+ 
+     b?)                    ### matches any two-character string starting with "b"
+          #script here
+          ;;
+ 
+     s[td])                 ### matches "st" or "sd"
+          #script here
+          ;;
+ 
+     r[ao]m)                ### matches "ram" or "rom"
+          #script here
+          ;;
+ 
+     me?(e)t)               ### matches "met" or "meet"
+          #script here
+          ;;
+ 
+     @(a|e|i|o|u))          ### matches one vowel
+          #script here
+          ;;
+ 
+     *)                     ### Catchall matches anything not matched above
+          #script here
+          ;; 
+esac
+
+
+***********************************
+
+case Example-6 
+
+#!/bin/bash
+ 
+read -p "Enter your choice [yes/no]:" choice
+ 
+case $choice in
+     Y/y/Yes/YES/yes)
+          echo "Thank you"
+          echo "Your type: Yes"
+          ;;
+     N/n/No/NO/no)
+          echo "Ooops"
+          echo "You type: No"
+          ;;
+     *)
+          echo "Sorry, invalid input"
+          ;;
+esac
+

@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="https://static.thegeekstuff.com/wp-content/thesis/skins/classic-r/css.css.gzip" media="screen, projection" />
+<title>The Ultimate Bash Array Tutorial with 15 Examples</title>
+<meta name="description" content="An array is a variable containing multiple values may be of same type or of different type.  There is no maximum limit to the size of an array, nor any re" />
+<meta name="robots" content="noodp, noydir" />
+<link rel="canonical" href="https://www.thegeekstuff.com/2010/06/bash-array-tutorial/" />
+<link rel="alternate" type="application/rss+xml" title="The Geek Stuff feed" href="https://www.thegeekstuff.com/feed/" />
+<link rel="pingback" href="https://www.thegeekstuff.com/xmlrpc.php" />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="The Geek Stuff &raquo; The Ultimate Bash Array Tutorial with 15 Examples Comments Feed" href="https://www.thegeekstuff.com/2010/06/bash-array-tutorial/feed/" />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://static.thegeekstuff.com/wp-includes/css/dist/block-library/style.min.css.gzip?ver=5.3.4' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='https://www.thegeekstuff.com/wp-json/' />
+<link rel="alternate" type="application/json+oembed" href="https://www.thegeekstuff.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.thegeekstuff.com%2F2010%2F06%2Fbash-array-tutorial%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.thegeekstuff.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.thegeekstuff.com%2F2010%2F06%2Fbash-array-tutorial%2F&#038;format=xml" />
+<link rel="shortcut icon" href="https://static.thegeekstuff.com/wp-content/uploads/2015/05/favicon.ico.gzip" />
+</head>
+<body class="template-single">
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-5302569-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<div class="container">
+	<div id="header" class="header">
+		<p id="logo"><a href="https://www.thegeekstuff.com"><img src="https://static.thegeekstuff.com/wp-content/themes/thesis_18/custom/images/thegeekstuff.gif" alt="The Geek Stuff" /></a>
+<div id="header_ad"><div id="header_ad1">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- TGS Logo Header -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-8090601437064582"
+     data-ad-slot="4708993701"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+	</div>
+<span class="menu_control">≡ Menu</span>
+<ul id="menu-tgs-menu" class="menu"><li id="menu-item-15798" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-15798"><a href="https://www.thegeekstuff.com/">Home</a></li>
+<li id="menu-item-15797" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15797"><a href="https://www.thegeekstuff.com/linux-101-hacks-ebook/">Free eBook</a></li>
+<li id="menu-item-15805" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15805"><a href="https://www.thegeekstuff.com/best-of-the-blog/">Start Here</a></li>
+<li id="menu-item-15800" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15800"><a href="https://www.thegeekstuff.com/contact/">Contact</a></li>
+<li id="menu-item-15802" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15802"><a href="https://www.thegeekstuff.com/about/">About</a></li>
+</ul>
+<div class="columns">
+	<div class="content">
+		<div id="post-4523" class="post_box grt top" itemscope itemtype="http://schema.org/Article">
+			<div class="headline_area">
+				<h1 class="headline" itemprop="name">The Ultimate Bash Array Tutorial with 15 Examples</h1>
+<div class="byline small">
+	<span class="post_author_intro">by</span> <span class="post_author">Sasikala</span>
+<span class="post_date_intro">on</span> <span class="post_date" title="2010-06-03">June 3, 2010</span>
+</div>
+			</div>
+<div class="post_content">
+<div style="margin:7px 0px 6px 0px; padding:5px;">
+
+<div style="float:left; width=95px">
+<g:plusone size="medium"></g:plusone>
+</div>
+
+<div style="float:left; padding:2px; width:90px"><iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.thegeekstuff.com%2F2010%2F06%2Fbash-array-tutorial%2F&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe></iframe>
+</div>
+
+<div style="width=95px">
+<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+</div>
+
+</div>
+<p>An array is a variable containing multiple values may be of same type or of different type.  There is no maximum limit to the size of an array, nor any requirement that member variables be indexed or assigned contiguously. Array index starts with zero.</p>
+<p>In this article, let us review 15 various array operations in bash.<br />
+<span id="more-4523"></span><br />
+This article is part of the on-going <a href="https://www.thegeekstuff.com/tag/bash-tutorial/">Bash Tutorial</a> series. For those who are new to bash scripting, get a jump-start from the <a href="https://www.thegeekstuff.com/2010/03/introduction-to-bash-scripting/">Bash Scripting Introduction tutorial</a>.</p>
+<h3>1. Declaring an Array and Assigning values</h3>
+<p>In bash, array is created automatically when a variable is used in the format like,</p>
+<pre>name[index]=value</pre>
+<ul>
+<li>name is any name for an array</li>
+<li>index could be any number or expression that must evaluate to a number greater than or equal to zero.You can declare an explicit array using declare -a arrayname.</li>
+</ul>
+<pre>$ cat arraymanip.sh
+#! /bin/bash
+Unix[0]='Debian'
+Unix[1]='Red hat'
+Unix[2]='Ubuntu'
+Unix[3]='Suse'
+
+echo ${Unix[1]}
+
+$./arraymanip.sh
+Red hat</pre>
+<p>To access an element from an array use curly brackets like ${name[index]}.</p>
+<h3>2. Initializing an array during declaration</h3>
+<p>Instead of initializing an each element of an array separately, you can declare and initialize an array by specifying the list of elements (separated by white space) with in a curly braces.</p>
+<pre>Syntax:
+declare -a arrayname=(element1 element2 element3)</pre>
+<p>If the elements has the white space character, enclose it with in a quotes.</p>
+<pre>#! /bin/bash
+$cat arraymanip.sh
+declare -a Unix=('Debian' 'Red hat' 'Red hat' 'Suse' 'Fedora');</pre>
+<p>declare -a declares an array and all the elements in the parentheses are the elements of an array.</p>
+    <center>
+      <div style="margin-left:2px; margin-top:10px; margin-bottom:10px; ">
+
+        <!-- AD BLOCK -->
+		
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- TGS Inside Content -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-8090601437064582"
+     data-ad-slot="8643685131"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <!-- END AD BLOCK -->
+
+	  </div>
+    </center>
+
+
+<h3>3. Print the Whole Bash Array</h3>
+<p>There are different ways to print the whole elements of the array. If the index number is @ or *, all members of an array are referenced. You can traverse through the array elements and print it, using looping statements in bash.</p>
+<pre>echo ${Unix[@]}
+
+# Add the above echo statement into the arraymanip.sh
+#./t.sh
+Debian Red hat Ubuntu Suse</pre>
+<p>Referring to the content of a member variable of an array without providing an index number is the same as referring to the content of the first element, the one referenced with index number zero.</p>
+<h3>4. Length of the Bash Array</h3>
+<p>We can get the length of an array using the special parameter called $#.</p>
+<p>${#arrayname[@]} gives you the length of the array.</p>
+<pre>$ cat arraymanip.sh
+declare -a Unix=('Debian' 'Red hat' 'Suse' 'Fedora');
+echo ${#Unix[@]} #Number of elements in the array
+echo ${#Unix}  #Number of characters in the first element of the array.i.e Debian
+$./arraymanip.sh
+4
+6</pre>
+<h3>5. Length of the nth Element in an Array</h3>
+<p>${#arrayname[n]} should give the length of the nth element in an array.</p>
+<pre>$cat arraymanip.sh
+#! /bin/bash
+
+Unix[0]='Debian'
+Unix[1]='Red hat'
+Unix[2]='Ubuntu'
+Unix[3]='Suse'
+
+echo ${#Unix[3]} # length of the element located at index 3 i.e Suse
+
+$./arraymanip.sh
+4</pre>
+<h3>6. Extraction by offset and length for an array</h3>
+<p>The following example shows the way to extract 2 elements starting from the position 3 from an array called Unix.</p>
+<pre>$cat arraymanip.sh
+Unix=('Debian' 'Red hat' 'Ubuntu' 'Suse' 'Fedora' 'UTS' 'OpenLinux');
+echo ${Unix[@]:3:2}
+
+$./arraymanip.sh
+Suse Fedora</pre>
+<p>The above example returns the elements in the 3rd index and fourth index. Index always starts with zero.</p>
+<h3>7. Extraction with offset and length, for a particular element of an array</h3>
+<p>To extract only first four elements from an array element . For example, Ubuntu which is located at the second index of an array, you can use offset and length for a particular element of an array.</p>
+<pre>$cat arraymanip.sh
+#! /bin/bash
+
+Unix=('Debian' 'Red hat' 'Ubuntu' 'Suse' 'Fedora' 'UTS' 'OpenLinux');
+echo ${Unix[2]:0:4}
+
+./arraymanip.sh
+Ubun</pre>
+<p>The above example extracts the first four characters from the 2nd indexed element of an array.</p>
+<h3>8. Search and Replace in an array elements</h3>
+<p>The following example, searches for Ubuntu in an array elements, and replace the same with the word &#8216;SCO Unix&#8217;.</p>
+<pre>$cat arraymanip.sh
+#!/bin/bash
+Unix=('Debian' 'Red hat' 'Ubuntu' 'Suse' 'Fedora' 'UTS' 'OpenLinux');
+
+echo ${Unix[@]/Ubuntu/SCO Unix}
+
+$./arraymanip.sh
+Debian Red hat SCO Unix Suse Fedora UTS OpenLinux</pre>
+<p>In this example, it replaces the element in the 2nd index &#8216;Ubuntu&#8217; with &#8216;SCO Unix&#8217;. But this example will not permanently replace the array content.</p>
+<h3>9. Add an element to an existing Bash Array</h3>
+<p>The following example shows the way to add an element to the existing array.</p>
+<pre>$cat arraymanip.sh
+Unix=('Debian' 'Red hat' 'Ubuntu' 'Suse' 'Fedora' 'UTS' 'OpenLinux');
+Unix=("${Unix[@]}" "AIX" "HP-UX")
+echo ${Unix[7]}
+
+$./arraymanip.sh
+AIX</pre>
+<p>In the array called Unix, the elements &#8216;AIX&#8217; and &#8216;HP-UX&#8217; are added in 7th and 8th index respectively.</p>
+<h3>10. Remove an Element from an Array</h3>
+<p>unset is used to remove an element from an array.unset will have the same effect as assigning null to an element.</p>
+<pre>$cat arraymanip.sh
+#!/bin/bash
+Unix=('Debian' 'Red hat' 'Ubuntu' 'Suse' 'Fedora' 'UTS' 'OpenLinux');
+
+unset Unix[3]
+echo ${Unix[3]}</pre>
+<p>The above script will just print null which is the value available in the 3rd index. The following example shows one of the way to remove an element completely from an array.</p>
+<pre>$ cat arraymanip.sh
+Unix=('Debian' 'Red hat' 'Ubuntu' 'Suse' 'Fedora' 'UTS' 'OpenLinux');
+pos=3
+Unix=(${Unix[@]:0:$pos} ${Unix[@]:$(($pos + 1))})
+echo ${Unix[@]}
+
+$./arraymanip.sh
+Debian Red hat Ubuntu Fedora UTS OpenLinux</pre>
+<p>In this example, ${Unix[@]:0:$pos} will give you 3 elements starting from 0th index i.e 0,1,2 and ${Unix[@]:4} will give the elements from 4th index to the last index. And merge both the above output. This is one of the workaround to remove an element from an array.</p>
+<h3>11. Remove Bash Array Elements using Patterns</h3>
+<p>In the search condition you can give the patterns, and stores the remaining element to an another array as shown below.</p>
+<pre>$ cat arraymanip.sh
+#!/bin/bash
+declare -a Unix=('Debian' 'Red hat' 'Ubuntu' 'Suse' 'Fedora');
+declare -a patter=( ${Unix[@]/Red*/} )
+echo ${patter[@]}
+
+$ ./arraymanip.sh
+Debian Ubuntu Suse Fedora</pre>
+<p>The above example removes the elements which has the patter Red*.</p>
+<h3>12. Copying an Array</h3>
+<p>Expand the array elements and store that into a new array as shown below.</p>
+<pre>#!/bin/bash
+Unix=('Debian' 'Red hat' 'Ubuntu' 'Suse' 'Fedora' 'UTS' 'OpenLinux');
+Linux=("${Unix[@]}")
+echo ${Linux[@]}
+
+$ ./arraymanip.sh
+Debian Red hat Ubuntu Fedora UTS OpenLinux</pre>
+<h3>13. Concatenation of two Bash Arrays</h3>
+<p>Expand the elements of the two arrays and assign it to the new array.</p>
+<pre>$cat arraymanip.sh
+#!/bin/bash
+Unix=('Debian' 'Red hat' 'Ubuntu' 'Suse' 'Fedora' 'UTS' 'OpenLinux');
+Shell=('bash' 'csh' 'jsh' 'rsh' 'ksh' 'rc' 'tcsh');
+
+UnixShell=("${Unix[@]}" "${Shell[@]}")
+echo ${UnixShell[@]}
+echo ${#UnixShell[@]}
+
+$ ./arraymanip.sh
+Debian Red hat Ubuntu Suse Fedora UTS OpenLinux bash csh jsh rsh ksh rc tcsh
+14</pre>
+<p>It prints the array which has the elements of the both the array &#8216;Unix&#8217; and &#8216;Shell&#8217;, and number of elements of the new array is 14.</p>
+<h3>14. Deleting an Entire Array</h3>
+<p>unset is used to delete an entire array.</p>
+<pre>$cat arraymanip.sh
+#!/bin/bash
+Unix=('Debian' 'Red hat' 'Ubuntu' 'Suse' 'Fedora' 'UTS' 'OpenLinux');
+Shell=('bash' 'csh' 'jsh' 'rsh' 'ksh' 'rc' 'tcsh');
+
+UnixShell=("${Unix[@]}" "${Shell[@]}")
+unset UnixShell
+echo ${#UnixShell[@]}
+
+$ ./arraymanip.sh
+0</pre>
+<p>After unset an array, its length would be zero as shown above.</p>
+<h3>15. Load Content of a File into an Array</h3>
+<p>You can load the content of the file line by line into an array.</p>
+<pre>#Example file
+$ cat logfile
+Welcome
+to
+thegeekstuff
+Linux
+Unix
+
+$ cat loadcontent.sh
+#!/bin/bash
+filecontent=( `cat "logfile" `)
+
+for t in "${filecontent[@]}"
+do
+echo $t
+done
+echo "Read file content!"
+
+$ ./loadcontent.sh
+Welcome
+to
+thegeekstuff
+Linux
+Unix
+Read file content!</pre>
+<p>In the above example, each index of an array element has printed through for loop.</p>
+<h3>Recommended Reading</h3>
+<p><a rel="nofollow" href="https://www.thegeekstuff.com/bash-101-hacks-ebook/"><img class="alignright" src="https://static.thegeekstuff.com/images/bash-132.png" title="Bash 101 Hacks" /></a><strong><a rel="nofollow" href="https://www.thegeekstuff.com/bash-101-hacks-ebook/">Bash 101 Hacks</a>, by Ramesh Natarajan</strong>. I spend most of my time on Linux environment. So, naturally I&#8217;m a huge fan of Bash command line and shell scripting. 15 years back, when I was working on different flavors of *nix, I used to write lot of code on C shell and Korn shell. Later years, when I started working on Linux as system administrator, I pretty much automated every possible task using Bash shell scripting. Based on my Bash experience, I&#8217;ve written Bash 101 Hacks eBook that contains 101 practical examples on both Bash command line and shell scripting. If you&#8217;ve been thinking about mastering Bash, do yourself a favor and read this book, which will help you take control of your Bash command line and shell scripting.</p>
+<div style="margin:7px 0px 3px 0px; padding:5px; background:#F2F0E8">
+
+<div style="float:left; width=95px">
+<g:plusone size="medium"></g:plusone>
+</div>
+
+<div style="float:left; width=95px">
+<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+</div>
+
+<div style="float:left; padding:2px; width:90px"><iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.thegeekstuff.com%2F2010%2F06%2Fbash-array-tutorial%2F&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe></iframe>
+</div>
+
+<div style="padding:1px">
+&gt;&nbsp;<a href="#commentform" rel="nofollow">Add your comment</a>
+</div>
+
+</div>
+<h3>If you enjoyed this article, you might also like..</h3>
+<table>
+<tr>
+<td valign="top">
+<ol>
+<li><a href="https://www.thegeekstuff.com/2010/12/50-unix-linux-sysadmin-tutorials/">50 Linux Sysadmin Tutorials</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/11/50-linux-commands/">50 Most Frequently Used Linux Commands (With Examples)</a></li>
+<li><a href="https://www.thegeekstuff.com/2011/12/linux-performance-monitoring-tools/">Top 25 Best Linux Performance Monitoring and Debugging Tools</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/">Mommy, I found it! – 15 Practical Linux Find Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/linux-101-hacks-ebook/">Linux 101 Hacks 2nd Edition eBook</a>&nbsp;<img title="Linux 101 Hacks Book" src="https://static.thegeekstuff.com/images/free-small.png" alt="Linux 101 Hacks Book" /></li>
+</ol>
+</td>
+<td>
+<ul>
+<li><a href="https://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/">Awk Introduction – 7 Awk Print Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/">Advanced Sed Substitution Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/03/8-essential-vim-editor-navigation-fundamentals/">8 Essential Vim Editor Navigation Fundamentals</a></li>
+<li><a href="https://www.thegeekstuff.com/2011/06/iptables-rules-examples/">25 Most Frequently Used Linux IPTables Rules Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/08/turbocharge-putty-with-12-powerful-add-ons-software-for-geeks-3/">Turbocharge PuTTY with 12 Powerful Add-Ons</a></li>
+</ul>
+</td>
+</tr>
+</table>
+<br />
+<center>
+<table id="booktable">
+<tr>
+<td>
+<a rel="nofollow" href="https://www.thegeekstuff.com/bash-101-hacks-ebook/"><img title="Bash 101 Hacks Book" src="https://static.thegeekstuff.com/images/bash-132.png" alt="Bash 101 Hacks Book" /></a>
+</td>
+<td>
+<a rel="nofollow" href="https://www.thegeekstuff.com/sed-awk-101-hacks-ebook/"><img title="Sed and Awk 101 Hacks Book" src="https://static.thegeekstuff.com/images/sed-and-awk-132.png" alt="Sed and Awk 101 Hacks Book" /></a>
+</td>
+<td>
+<a rel="nofollow" href="https://www.thegeekstuff.com/nagios-core-ebook/"><img title="Nagios Core 3 Book" src="https://static.thegeekstuff.com/images/nagios-core-132.png" alt="Nagios Core 3 Book" /></a>
+</td>
+<td>
+<a rel="nofollow" href="https://www.thegeekstuff.com/vim-101-hacks-ebook/"><img title="Vim 101 Hacks Book" src="https://static.thegeekstuff.com/images/vim-101-hacks-132.png" alt="Vim 101 Hacks Book" /></a>
+</td>
+</tr>
+</table>
+</center>
+<br />
+</div>
+<p class="post_tags">
+	<span class="post_tags_intro">Tagged as:</span>
+	<a href="https://www.thegeekstuff.com/tag/bash-array-string/" rel="tag">Bash Array String</a>,
+	<a href="https://www.thegeekstuff.com/tag/bash-arrays/" rel="tag">Bash Arrays</a>,
+	<a href="https://www.thegeekstuff.com/tag/bash-script-array/" rel="tag">Bash Script Array</a>,
+	<a href="https://www.thegeekstuff.com/tag/bash-scripting-tutorial/" rel="tag">Bash Scripting Tutorial</a>,
+	<a href="https://www.thegeekstuff.com/tag/bash-tutorial/" rel="tag">Bash Tutorial</a>,
+	<a href="https://www.thegeekstuff.com/tag/echo-array/" rel="tag">Echo Array</a>,
+	<a href="https://www.thegeekstuff.com/tag/linux-array/" rel="tag">Linux Array</a>,
+	<a href="https://www.thegeekstuff.com/tag/unix-array/" rel="tag">Unix Array</a>
+</p>
+		</div>
+<div id="comments">
+	<p class="comments_intro"><span class="bracket">{</span> <span class="num_comments">62</span> comments&#8230; <a href="#commentform" rel="nofollow">add one</a> <span class="bracket">}</span></p>
+<ul class="comment_list">
+	<li class="comment even thread-even depth-1" id="comment-48908">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Tanmay Joshi</span>
+<span class="comment_date">June 3, 2010, 5:59 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-48908"><p>Good article.</p>
+<p>I am new to linux and following your articles very closely.<br />
+Just wanted to confirm if the below line as typo in displaying code or the sentence it self<br />
+&#8220;declare -a declares an array and all the elements in the curly brackets are the elements of an array&#8221; &#8211; are we using curly brackets or parantheses?</p>
+<p>Thanks,<br />
+Tanmay</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-48908" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-48916">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Gabriele</span>
+<span class="comment_date">June 3, 2010, 6:47 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-48916"><p>Great stuff!!!<br />
+Regards</p>
+<p>Gabriele</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-48916" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-48923">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://www.iambryan.net" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://www.iambryan.net' rel='external nofollow ugc' class='url'>iambryan</a></span>
+<span class="comment_date">June 3, 2010, 8:52 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-48923"><p>Great examples 🙂</p>
+<p>There is a correction for number 6 though as the OpenLinux array entity is missing the closing single quote which would as you know, throw an error.</p>
+<p>Keep up the good work</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-48923" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-admin odd alt thread-odd thread-alt depth-1" id="comment-48983">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Ramesh Natarajan</span>
+<span class="comment_date">June 3, 2010, 10:11 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-48983"><p>@Tanmay, @Bryan,</p>
+<p>Thanks for pointing out the issues. They are fixed now.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-48983" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-48994">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">hari</span>
+<span class="comment_date">June 3, 2010, 11:50 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-48994"><p>best  best</p>
+<p>best</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-48994" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-49041">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://cfajohnson.com/" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://cfajohnson.com/' rel='external nofollow ugc' class='url'>Chris F.A. Johnson</a></span>
+<span class="comment_date">June 4, 2010, 8:01 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-49041"><p>1. &#8220;echo ${Unix[1]}&#8221; will not necessarily print element 1 from the array. For example:</p>
+<p>$ Unix[1]=&#8221;   AAA    BBB    CCC&#8221;<br />
+$ echo ${Unix[1]}<br />
+AAA BBB CCC</p>
+<p>Leading and trailing whitespace will be lost, and consecutive whitespace will be reduced to a single space.</p>
+<p>It should be:</p>
+<p>echo &#8220;${Unix[1]}&#8221;</p>
+<p>(Almost all the examples exhibit the same error because the variable reference is not quoted. Whether the error is manifest in the output depends on the contents of the array elements.)</p>
+<p>2. &#8220;declare -a&#8221; is unnecessary</p>
+<p>3. &#8220;echo ${Unix[@]}&#8221; has the same problem as #1</p>
+<p>4. More accurately, ${#arrayname[@]} gives you the number of elements in the array.</p>
+<p>9. Since bash3, elements can also be appended to an array with &#8220;+=&#8221;:</p>
+<p>Unix+=( &#8220;AIX&#8221; &#8220;HP-UX&#8221; )</p>
+<p>15. filecontent=( `cat &#8220;logfile&#8221; `)</p>
+<p>More efficient, as it doesn&#8217;t require an external command, is: </p>
+<p>filecontent=( `&lt; &quot;logfile&quot; `)</p>
+<p>(Note: this doesn&#039;t read the file line by line; it reads it word by word. Try it on a file with more than one word on a line.)</p>
+<p>Since bash4, this can be done even more efficiently with the mapfile builtin:</p>
+<p>mapfile -t filecontent &lt; &quot;$logfile&quot;</p>
+<p>for t in &quot;${filecontent[@]}&quot;</p>
+<p>The loop is not necessary:</p>
+<p>printf &quot;%s\n&quot; &quot;${filecontent[@]}&quot;</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-49041" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-49115">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">anonymous</span>
+<span class="comment_date">June 4, 2010, 10:01 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-49115"><p>Note that the example will not read the following file into an array (where each line is an element).<br />
+This is the first line<br />
+This is the second line<br />
+This is the final line<br />
+To read the file (as lines) into an array do:<br />
+{<br />
+    IFS=$&#8217;\n&#8217;<br />
+    array_name=( $(cat filename) )<br />
+}<br />
+Note the use of the &#8220;{&#8221; in this example allows the changing of IFS value without having to save it and restore it.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-49115" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-49324">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">TheFu</span>
+<span class="comment_date">June 7, 2010, 9:36 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-49324"><p>I love it!  Great examples to display simple use cases.</p>
+<p>Sadly, the syntax for arrays in Bash is too complex for me, so I&#8217;ll be staying with Perl. How often do you hear that? 😉  I&#8217;ll probably be back here when perl isn&#8217;t allowed on a system for some reason.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-49324" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-49477">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">sbaginov</span>
+<span class="comment_date">June 9, 2010, 4:47 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-49477"><p>Simply awsome! Thank you!</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-49477" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-50674">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">WaS</span>
+<span class="comment_date">June 21, 2010, 3:36 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-50674"><p>When you do:</p>
+<p>filecontent=( `cat “logfile” `)</p>
+<p>and logfile have one &#8220;*&#8221; you get a list of archives in your directory, how i can solve it?</p>
+<p>Thx</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-50674" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-50716">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://cfajohnson.com/" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://cfajohnson.com/' rel='external nofollow ugc' class='url'>Chris F.A. Johnson</a></span>
+<span class="comment_date">June 21, 2010, 11:34 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-50716"><p>WaS, when you do that, $logfile will contain just an asterisk (*).</p>
+<p>If you want to display that asterisk, you must quote the variable reference or the wildcard will be expanded:</p>
+<p>printf &#8220;%s\n&#8221; &#8220;$logfile&#8221;</p>
+<p>Or:</p>
+<p>echo &#8220;$logfile&#8221;</p>
+<p>(Always quote variable references unless you have a good reason not to.)</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-50716" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-65555">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Toni Kukul</span>
+<span class="comment_date">October 8, 2010, 5:47 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-65555"><p>To read a file into an array it&#8217;s possible to use the readarray or mapfile bash built-ins.<br />
+readarray &lt; filename<br />
+or<br />
+mapfile &lt; filename</p>
+<p>File is read into MAPFILE variable by default.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-65555" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-202295">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Anderson Venturini</span>
+<span class="comment_date">February 28, 2012, 6:08 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-202295"><p>Thanks a lot! Great tutorial! It was very useful! Congrats!</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-202295" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-207850">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">ak</span>
+<span class="comment_date">March 11, 2012, 10:50 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-207850"><p>Good Examples. Thank you for hard work and clear explanations. Error in number 12: Suse is omitted from the copied array.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-207850" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-242268">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Vivek</span>
+<span class="comment_date">May 30, 2012, 8:07 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-242268"><p>Hi, </p>
+<p>I need to use cntrC inside my shell script. Here is an example:<br />
+&#8221;<br />
+run some commands<br />
+cntLc<br />
+run some more commands</p>
+<p>&#8221;</p>
+<p>How can I have my shell script generate cntrC without me typing cnrlC?</p>
+<p>Vivek.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-242268" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-242695">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://cfajohnson.com/" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://cfajohnson.com/' rel='external nofollow ugc' class='url'>Chris F.A. Johnson</a></span>
+<span class="comment_date">May 31, 2012, 12:21 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-242695"><p>Vivek, what do you really want to do?</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-242695" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-242882">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Vivek</span>
+<span class="comment_date">May 31, 2012, 8:54 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-242882"><p>Chris, I need to run a script which has a command which gives a running output. I need to change the argument to that command for example from 1 to 10.<br />
+Example:<br />
+for a in $(seq 1 10)<br />
+do</p>
+<p>done</p>
+<p>Now  gives a running output.<br />
+Now when a=1, the command is running.<br />
+I want to send cntrlC to the command so that  ends after lets say 100 seconds and  starts.</p>
+<p>Vivek.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-242882" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-243342">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://cfajohnson.com/" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://cfajohnson.com/' rel='external nofollow ugc' class='url'>Chris F.A. Johnson</a></span>
+<span class="comment_date">June 1, 2012, 12:23 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-243342"><p>Vivek, what does this have to do with arrays?</p>
+<p>for n in {1..10}<br />
+do<br />
+  : whatever<br />
+done &amp;</p>
+<p>read &amp;&amp; kill &#8220;$!&#8221;</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-243342" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-268529">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Dennis Dashkevich</span>
+<span class="comment_date">July 12, 2012, 3:09 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-268529"><p>More accurately, the length of the Nth element in an array will give the statement with the N-1 index, i.e. ${#arrayname[N-1]}.</p>
+<p>Thanks for the tutorial! It&#8217;s really great!</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-268529" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-356287">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">h</span>
+<span class="comment_date">October 29, 2012, 1:25 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-356287"><p>white space in elements not getting eliminated even though quotes are used</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-356287" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-472042">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://iproute.wordpress.com" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://iproute.wordpress.com' rel='external nofollow ugc' class='url'>Josh</a></span>
+<span class="comment_date">January 2, 2013, 5:41 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-472042"><p>How about &#8220;test to see if value is in array&#8221; example?</p>
+<p>Below is a small function for achieving this. The search string is the first argument and the rest are the array elements:</p>
+<p>containsElement () {<br />
+  local e<br />
+  for e in &#8220;${@:2}&#8221;; do [[ &#8220;$e&#8221; == &#8220;$1&#8221; ]] &amp;&amp; return 0; done<br />
+  return 1<br />
+}<br />
+A test run of that function could look like:</p>
+<p>$ array=(&#8220;something to search for&#8221; &#8220;a string&#8221; &#8220;test2000&#8221;)<br />
+$ containsElement &#8220;a string&#8221; &#8220;${array[@]}&#8221;<br />
+$ echo $?<br />
+0<br />
+$ containsElement &#8220;blaha&#8221; &#8220;${array[@]}&#8221;<br />
+$ echo $?<br />
+1</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-472042" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-472206">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://cfajohnson.com/" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://cfajohnson.com/' rel='external nofollow ugc' class='url'>Chris F.A. Johnson</a></span>
+<span class="comment_date">January 2, 2013, 7:23 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-472206"><p>Josh, there&#8217;s no need for a loop:</p>
+<p>arraycontains() #@ USAGE: arraycontains STRING ARRAYNAME [IFS]<br />
+{<br />
+  local string=$1 array=$2 localarray IFS=${3:-:}<br />
+  eval &#8220;localarray=( \&#8221;\${$array[@]}\&#8221; )&#8221;<br />
+  case  &#8220;$IFS${localarray[*]}$IFS&#8221; in<br />
+    *&#8221;$IFS$string$IFS&#8221;*) return ;;<br />
+    *) return 1 ;;<br />
+  esac<br />
+}</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-472206" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-483250">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://cfajohnson.com/" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://cfajohnson.com/' rel='external nofollow ugc' class='url'>Chris F.A. Johnson</a></span>
+<span class="comment_date">January 8, 2013, 6:41 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-483250"><p>I have posted a number of functions for manipulating arrays at <a href="http://cfajohnson.com/shell/arrays/" rel="nofollow">http://cfajohnson.com/shell/arrays/</a></p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-483250" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-510713">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Angelo</span>
+<span class="comment_date">January 23, 2013, 6:32 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-510713"><p>As a historical note:  SuSE has a lower-case &#8220;u&#8221; and the rest upper-case because it originally stood for &#8220;Software und System-Entwicklung&#8221;, meaning &#8220;Software and systems development&#8221;.  (Ref: <a href="http://en.wikipedia.org/wiki/SuSE" rel="nofollow">http://en.wikipedia.org/wiki/SuSE</a>)</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-510713" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-510940">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Angelo</span>
+<span class="comment_date">January 23, 2013, 9:34 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-510940"><p>I&#8217;m a fan of clear code that is easy to read, but was curious whether Mr. Johnson&#8217;s arraycontains method had an efficiency benefit (in spite of its more obfuscated nature) over Josh&#8217;s (which is almost exactly the method I had been using).  I can&#8217;t get it to work at all.  Maybe I&#8217;m missing something, but in case I&#8217;m not, maybe I can save someone else the wasted effort in going down this same road.</p>
+<p>Here is my test of Chris Johnson&#8217;s code:</p>
+<p>#!/bin/bash<br />
+arraycontains() {    #@ USAGE: arraycontains STRING ARRAYNAME [IFS]<br />
+   local string=$1 array=$2 localarray IFS=${3:-:}<br />
+   eval &#8220;localarray=( \&#8221;\${$array[@]}\&#8221; )&#8221;<br />
+   case &#8220;$IFS${localarray[*]}$IFS&#8221; in<br />
+   *&#8221;$IFS$string$IFS&#8221;*) return ;;<br />
+   *) return 1 ;;<br />
+   esac<br />
+}</p>
+<p>echo -en &#8220;String test 1: &#8221;<br />
+one=(&#8220;and&#8221; &#8220;this&#8221; &#8220;is&#8221; &#8220;another&#8221; &#8220;test&#8221;)<br />
+if arraycontains &#8220;something&#8221; &#8220;${one[@]}&#8221;<br />
+then<br />
+   echo &#8220;TRUE, but should be FALSE&#8221;<br />
+else<br />
+   echo &#8220;OK&#8221;<br />
+fi</p>
+<p>echo -en &#8220;String test 2: &#8221;<br />
+if arraycontains &#8220;another&#8221; &#8220;${one[@]}&#8221;<br />
+then<br />
+   echo &#8220;OK&#8221;<br />
+else<br />
+   echo &#8220;FALSE, but should be TRUE&#8221;<br />
+fi</p>
+<p>echo -en &#8220;Numeric test: &#8221;<br />
+two=(1 2 3 4 5)<br />
+arraycontains &#8220;5&#8221; &#8220;${two[@]}&#8221;<br />
+echo $?</p>
+<p>echo -en &#8220;Quoted-numeric test: &#8221;<br />
+three=(&#8220;1&#8221; &#8220;2&#8221; &#8220;3&#8221; &#8220;4&#8221; &#8220;5&#8221;)<br />
+arraycontains &#8220;6&#8221; &#8220;${three[@]}&#8221;<br />
+echo $?</p>
+<p>Here is the output:</p>
+<p>$ sh test-contains.sh<br />
+String test 1: OK<br />
+String test 2: FALSE, but should be TRUE<br />
+Numeric test: ./test-contains.sh: line 4: ${1[@]}: bad substitution<br />
+1<br />
+Quoted-numeric test: ./test-contains.sh: line 4: ${1[@]}: bad substitution<br />
+1</p>
+<p>Besides giving the error message when passed a numeric array, it always returns FALSE (1).  On investigation I discovered that the &#8220;eval&#8221; line is not working; localarray is always blank (so no wonder it always returns false).</p>
+<p>I ran this script with BASH 3.00.16 and 4.2.20 and got the same result.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-510940" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-723662">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Heriel Uronu@udom</span>
+<span class="comment_date">April 30, 2013, 7:18 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-723662"><p>yeah&#8230; am well and much clear on array in linux command..<br />
+wel done stay blessed,</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-723662" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-847004">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">x31eq</span>
+<span class="comment_date">July 17, 2013, 10:49 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-847004"><p>The second part of Example 10 is especially wrong because of the quoting issue.   It means ${Unix[1]} is Red instead of Red hat.  The correct way is</p>
+<p>Unix=(&#8220;${Unix[@]:0:$pos}&#8221; &#8220;${Unix[@]:$(($pos + 1))}&#8221;)</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-847004" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1071208">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Hans</span>
+<span class="comment_date">November 29, 2013, 1:49 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1071208"><p>The best guide on Bash arrays I have ever found!</p>
+<p>Thank you.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1071208" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-1163655">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">mug896</span>
+<span class="comment_date">January 2, 2014, 6:31 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1163655"><p>To read the file as lines into an array use double quote</p>
+<p>fileContents=( &#8220;$(cat sunflower.html)&#8221; )</p>
+<p>for line in &#8220;${fileContents[@]}&#8221;<br />
+do<br />
+    echo &#8220;$line&#8221;<br />
+done</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1163655" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1164248">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://cfajohnson.com" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://cfajohnson.com' rel='external nofollow ugc' class='url'>Chris F.A. Johnson</a></span>
+<span class="comment_date">January 2, 2014, 11:57 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1164248"><p>mug896,<br />
+That will not read the file line by line; it will read it word by word. All whitespace in the file will act as delimiters.</p>
+<p>And you don&#8217;t need a loop to print out the array:</p>
+<p>printf &#8216;%s\n&#8217; &#8220;${fileContents[@]}&#8221;</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1164248" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-1164422">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://cfajohnson.com" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://cfajohnson.com' rel='external nofollow ugc' class='url'>Chris F.A. Johnson</a></span>
+<span class="comment_date">January 2, 2014, 2:10 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1164422"><p>My mistake, mug896; your code will read the file into a single element of the array. You can see that by:</p>
+<p>printf &#8216;%s\n&#8217; “${fileContents[0]}”</p>
+<p>If you had done</p>
+<p>fileContents=( $(cat sunflower.html) ) ## no quotes</p>
+<p>It would have read each word into a separate element of the array.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1164422" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1182262">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Offirmo</span>
+<span class="comment_date">January 9, 2014, 8:21 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1182262"><p>Very nice, but &#8220;iteration on an array&#8221; is missing !</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1182262" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-1229648">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Erick</span>
+<span class="comment_date">January 24, 2014, 5:43 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1229648"><p>Thanks a lot!</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1229648" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1293278">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Robert Vila</span>
+<span class="comment_date">February 23, 2014, 10:57 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1293278"><p>What do you do when a bash script doesn&#8217;t accept arrays?</p>
+<p>Error messages:<br />
+ &gt;&gt;&gt;&gt; &#8220;declare: not found&#8221;<br />
+or<br />
+&gt;&gt;&gt;&gt; &#8220;Unix[0]=Debian: not found&#8221;</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1293278" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-1297085">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://cfajohnson.com/" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://cfajohnson.com/' rel='external nofollow ugc' class='url'>Chris F.A. Johnson</a></span>
+<span class="comment_date">February 25, 2014, 3:14 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1297085"><p>Robert, make sure you are using bash to interpret the script.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1297085" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1301583">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://robertmarkbramprogrammer.blogspot.com.au/" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://robertmarkbramprogrammer.blogspot.com.au/' rel='external nofollow ugc' class='url'>Robert Mark Bram</a></span>
+<span class="comment_date">February 27, 2014, 8:00 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1301583"><p>Your second example in &#8220;10. Remove an Element from an Array&#8221; is wrong because you are not enclosing the array parts in quotes &#8211; so &#8216;Red Hat&#8217; becomes two elements.</p>
+<p>Here it is fixed up with proofs.</p>
+<p>Fri Feb 28 &#8211; 12:53 PM &gt; Unix=(&#8216;Debian&#8217; &#8216;Red hat&#8217; &#8216;Ubuntu&#8217; &#8216;Suse&#8217; &#8216;Fedora&#8217; &#8216;UTS&#8217; &#8216;OpenLinux&#8217;);<br />
+Fri Feb 28 &#8211; 12:53 PM &gt; echo ${#Unix[@]}<br />
+7<br />
+Fri Feb 28 &#8211; 12:53 PM &gt; pos=3<br />
+Fri Feb 28 &#8211; 12:53 PM &gt; echo ${Unix[$pos]}<br />
+Suse<br />
+Fri Feb 28 &#8211; 12:53 PM &gt; Unix=(&#8220;${Unix[@]:0:$pos}&#8221; &#8220;${Unix[@]:$(($pos + 1))}&#8221;)<br />
+Fri Feb 28 &#8211; 12:53 PM &gt; echo ${Unix[$pos]}<br />
+Fedora<br />
+Fri Feb 28 &#8211; 12:53 PM &gt; echo ${Unix[@]}<br />
+Debian Red hat Ubuntu Fedora UTS OpenLinux<br />
+Fri Feb 28 &#8211; 12:53 PM &gt; echo ${#Unix[@]}<br />
+6<br />
+Fri Feb 28 &#8211; 12:53 PM &gt; for index in &#8220;${!Unix[@]}&#8221; ; do printf &#8220;%4d: %s\n&#8221; $index &#8220;${Unix[$index]}&#8221; ; done<br />
+   0: Debian<br />
+   1: Red hat<br />
+   2: Ubuntu<br />
+   3: Fedora<br />
+   4: UTS<br />
+   5: OpenLinux</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1301583" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-1345308">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">ian fleming</span>
+<span class="comment_date">March 13, 2014, 12:37 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1345308"><p>An alternate, perhaps simpler, method for removing an element, is to reassign Unix (making sure we include the quotes, as per previous post) from the remaining elements in the array (after unsetting):<br />
+      unset Unix[2]<br />
+     Unix=( &#8220;${Unix[@]&#8221; ) </p>
+<p>Example:<br />
+&#8212;&#8211; $ Unix=(&#8216;Debian&#8217; &#8216;Red Hat&#8217; &#8216;Ubuntu&#8217; &#8216;SuSE&#8217;);<br />
+&#8212;&#8211; $ echo &#8220;len: ${#Unix[@]}&#8221;; for ((i=0;i&lt;4;i++)); do printf &quot;%d %s\n&quot;  $i &quot;${Unix[$i]}&quot;; done<br />
+len: 4<br />
+0 Debian<br />
+1 Red Hat<br />
+2 Ubuntu<br />
+3 SuSE<br />
+&#8212;&#8211; $ unset Unix[2]<br />
+&#8212;&#8211; $ echo &quot;len: ${#Unix[@]}&quot;; for ((i=0;i&lt;4;i++)); do printf &quot;%d %s\n&quot;  $i &quot;${Unix[$i]}&quot;; done<br />
+len: 3<br />
+0 Debian<br />
+1 Red Hat<br />
+2<br />
+3 SuSE<br />
+&#8212;&#8211; $ Unix=( &quot;${Unix[@]}&quot; )<br />
+&#8212;&#8211; $ echo &quot;len: ${#Unix[@]}&quot;; for ((i=0;i&lt;4;i++)); do printf &quot;%d %s\n&quot;  $i &quot;${Unix[$i]}&quot;; done<br />
+len: 3<br />
+0 Debian<br />
+1 Red Hat<br />
+2 SuSE<br />
+3 </p>
+<p>(note that my loop runs past the end of the array after shortening it )</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1345308" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1482342">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Choperro</span>
+<span class="comment_date">April 15, 2014, 5:43 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1482342"><p>&gt;&gt;&gt;There is no &#8220;DECLARED&#8221; maximum limit to the size of an array, &#8230;..</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1482342" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-1488999">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Choperro</span>
+<span class="comment_date">April 16, 2014, 3:03 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1488999"><p>I need to quote, don&#8217;t you?<br />
+Unix=( &#8220;${Unix[@]:0:$pos}&#8221; &#8220;${Unix[@]:$(($pos + 1)&#8221; )})</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1488999" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1489107">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Choperro</span>
+<span class="comment_date">April 16, 2014, 3:24 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1489107"><p>Also. in 11<br />
+declare -a patter=( &#8220;${Unix[@]/Red*/}&#8221; )<br />
+It doesn&#8217;t remove array elements, it removes the first occurrence that satisfies the regular expression inside each element in the array.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1489107" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-1732951">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Dan</span>
+<span class="comment_date">May 19, 2014, 2:01 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1732951"><p>Choperro, actually:<br />
+declare -a patter=( “${Unix[@]/Red*/}” )<br />
+Removes all occurrences that satisfies the regular expression inside each element in the array.</p>
+<p>$ Unix=(&#8216;Debian&#8217; &#8216;Red hat&#8217; &#8216;Red Hat 2&#8217; &#8216;Red Hat 3&#8217; &#8216;Ubuntu&#8217; &#8216;Suse&#8217; &#8216;Fedora&#8217; &#8216;UTS&#8217; &#8216;OpenLinux&#8217;);</p>
+<p>$ patter=( ${Unix[@]/Red*/} )</p>
+<p>$ echo ${patter[@]}<br />
+Debian Ubuntu Suse Fedora UTS OpenLinux</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1732951" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1868489">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Xiaoning</span>
+<span class="comment_date">June 14, 2014, 1:25 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1868489"><p>Thanks for a great tutorial!</p>
+<p>I have a txt file with a list of directories that I hope to cd into, and do the same stuff for all of them. Suppose it look like this:</p>
+<p>&#8220;/path/to/first/dir&#8221;<br />
+&#8220;/path/to/second/dir&#8221;<br />
+&#8220;/path/to/third/dir/with space&#8221;<br />
+&#8230;</p>
+<p>I try to use the code in your Example 15 for my purpose:</p>
+<p>#!/bin/bash<br />
+DIR=( `cat &#8220;$HOME/path/to/txt.txt&#8221; `)<br />
+for t in &#8220;${DIR[@]}&#8221;<br />
+do<br />
+echo &#8220;$t&#8221;<br />
+done<br />
+echo &#8220;Done!&#8221;</p>
+<p>The above script worked fine for the first and second directory, but the third one will output this:</p>
+<p>&#8220;/path/to/third/dir/with<br />
+space&#8221;</p>
+<p>Instead of in one line. How can I fix that?</p>
+<p>Also, if I add cd command in the above script:</p>
+<p>#!/bin/bash<br />
+DIR=( `cat &#8220;$HOME/path/to/txt.txt&#8221; `)<br />
+for t in &#8220;${DIR[@]}&#8221;<br />
+do<br />
+echo &#8220;$t&#8221;<br />
+cd &#8220;$t&#8221;<br />
+done<br />
+echo &#8220;Done!&#8221;</p>
+<p>All the cd command would fail, the output looks like this:</p>
+<p>&#8220;/path/to/first/dir&#8221;<br />
+test.sh: line 6: cd: &#8220;/path/to/first/dir&#8221;: No such file or directory<br />
+&#8220;/path/to/second/dir&#8221;<br />
+test.sh: line 6: cd: &#8220;/path/to/second/dir&#8221;: No such file or directory<br />
+&#8220;/path/to/third/dir/with<br />
+test.sh: line 6: cd: &#8220;/path/to/third/dir/with: No such file or directory<br />
+space&#8221;<br />
+test.sh: line 6: cd: space&#8221;: No such file or directory</p>
+<p>Could you shed some light on why this happened and how should I fix it? Thank you very much!</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1868489" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-1886511">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://cfajohnson.com/" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://cfajohnson.com/' rel='external nofollow ugc' class='url'>Chris F.A. Johnson</a></span>
+<span class="comment_date">June 19, 2014, 8:45 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1886511"><p>&gt;&gt; DIR=( `cat “$HOME/path/to/txt.txt” `)</p>
+<p>That is always the wrong way to read a file; it reads it word by word not line by line.</p>
+<p>In bash4, the easy way is to use mapfile:</p>
+<p>mapfile -t dir &lt; &quot;$filename&quot;</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1886511" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1887962">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Xiaoning</span>
+<span class="comment_date">June 20, 2014, 7:06 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1887962"><p>Hi Chris,</p>
+<p>Thank you for the reply!</p>
+<p>I changed my code to use the mapfile line you suggested.</p>
+<p>But when I run the script, this is what I got:</p>
+<p>./test.sh: line 3: mapfile: command not found</p>
+<p>Any ideas? Thank you!</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1887962" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-1889324">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">ian fleming</span>
+<span class="comment_date">June 20, 2014, 4:12 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1889324"><p>Ran into that recently porting some scripts from RedHat to Apple OS X Mavericks.  Not all bash&#8217;s support mapfile (aka readarray);  it&#8217;s there in RedHat, but not in Apple&#8217;s OS X.  type &#8220;man mapfile&#8221; ; if it says &#8220;No manual entry&#8221; then your system probably doesn&#8217;t have mapfile implemented.  In that case, you may need to do something like the following (someone smarter than me may have a better solution):</p>
+<p>i=0<br />
+while read line<br />
+do<br />
+     dir[$((i++))]=$line   # store $line in dir[$i] and increment $i<br />
+     . . .<br />
+done &lt; $HOME/path/to/txt.txt</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1889324" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1889433">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://cfajohnson.com/" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://cfajohnson.com/' rel='external nofollow ugc' class='url'>Chris F.A. Johnson</a></span>
+<span class="comment_date">June 20, 2014, 5:00 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1889433"><p>mapfile was introduced in bash4 — more than 5 years ago.</p>
+<p>Upgrgade your bash; it&#8217;s long overdue.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1889433" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-1889873">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Xiaoning</span>
+<span class="comment_date">June 20, 2014, 8:16 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1889873"><p>I just check my bash version in Mac OS X Mavericks:<br />
+GNU bash, version 4.3.11(1)-release (x86_64-apple-darwin13.1.0)</p>
+<p>Should it have mapfile?</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1889873" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1889886">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Xiaoning</span>
+<span class="comment_date">June 20, 2014, 8:22 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1889886"><p>I also tried the read line method Ian suggested. Thanks Ian btw!</p>
+<p>However, I still ran into the same issue that all the &#8220;echo&#8221; command gave the correct results, but I can&#8217;t cd into all the directories.</p>
+<p>Bash returned: &#8220;./test.sh: line 14: cd: &#8220;/Users/xiaoning/some/path&#8221;: No such file or directory&#8221;</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1889886" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-1890248">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">ian fleming</span>
+<span class="comment_date">June 20, 2014, 10:57 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1890248"><p>Bash 4.3.xx does have mapfile.  However, OS X Mavericks&#8217; version of bash, which should be located in /bin/bash, is 3.2.xx .  I suspect you have a 2nd version of bash installed, and this is getting invoked as your startup shell.   (A likely location is /opt/local/bin/bash, which is where macports installs it if it is needed by any program installed by macports.  Fink may do the same.)    </p>
+<p>Your reported version of bash, 4.3, should have mapfile, but /bin/bash under OS X does not, and your script specifies to run under /bin/bash (1st line of script).  To use 4.3 in your script, Find where the bash you are running (&#8220;which bash&#8221; may tell you), and change the first line of your script to invoke that bash.  For example (using my example):</p>
+<p>#!/opt/local/bin/bash</p>
+<p>Regarding why your script cannot cd to “/Users/xiaoning/some/path” , I have no good explanation, assuming “/Users/xiaoning/some/path” does exist.  The command </p>
+<p>ls -ld “/Users/xiaoning/some/path”</p>
+<p>(from the command line) will verify that the directory exists.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1890248" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1891820">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Xiaoning Wang</span>
+<span class="comment_date">June 21, 2014, 11:53 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-1891820"><p>mapfile is working now after changing the #! line to the macport bash I have installed.</p>
+<p>Those are all valid directories that I can normally ls, or cd into. But the script for some reason is still not working&#8230;</p>
+<p>The script I&#8217;m using now is to directly store the array of directories in a variable, and it worked just fine. However, when I try to read the same array from a file, it&#8217;s no longer working. Very strange&#8230;</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-1891820" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-2048153">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">DC</span>
+<span class="comment_date">August 8, 2014, 10:11 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-2048153"><p>how to remove lines containing any one of an array of strings from multiple files?</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-2048153" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-2636435">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">jim</span>
+<span class="comment_date">October 28, 2014, 1:28 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-2636435"><p>Using sed, write a script that takes a filename and a pattern to do the following.<br />
+If the given pattern exists in the file with the very next line starting and ending with the same pattern, delete the line that starts and ends with the given pattern.  please help</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-2636435" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-4049957">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Yves B</span>
+<span class="comment_date">April 24, 2015, 7:02 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-4049957"><p>Thanks for tip no15.  &#8220;Load Content of a File into an Array&#8221;.  Exactly what I was looking for.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-4049957" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4181891">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://john.allsup.co" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://john.allsup.co' rel='external nofollow ugc' class='url'>John Allsup</a></span>
+<span class="comment_date">June 1, 2015, 4:56 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-4181891"><p>Care needs to be taken with quotes, both in general, and especially when playing with arrays. The following is a simple bash script that collects together working examples of the things you demonstrate above. Note that the file hx used at the end just contains a few lines of text, some of which contain spaces.</p>
+<p>#!/bin/bash</p>
+<p>declare -a A<br />
+A[3]=flibble<br />
+echo &#8220;$A[3]&#8221; might be flibble, the third item, but isnt<br />
+echo &#8220;${A[3]}&#8221; should be flibble, the third item, note the braces<br />
+echo &#8220;${A[@]}&#8221; is contents of array<br />
+echo &#8220;${#A[@]}&#8221; is length of array<br />
+echo &#8220;${#A[3]}&#8221; should be 7, length of flibble<br />
+echo &#8220;${A[3]:2:3}&#8221; should be ibb, the three characters starting at pos 2<br />
+echo &#8220;${A[@]/ibb/bone}&#8221; is search and replace for each item<br />
+A=(&#8220;${A[@]}&#8221; &#8220;wibble&#8221;)<br />
+echo A is now &#8220;${A[@]}&#8221;<br />
+echo now<br />
+declare -a B=(&#8220;${A[@]}&#8221;)<br />
+echo Third item is &#8220;${B[3]}&#8221;<br />
+echo Zeroth item is &#8220;${B[0]}&#8221;<br />
+echo So copying arrays this way does not preserve string keys &#8212; it reindexes<br />
+declare -a C<br />
+C[wibble]=wobble<br />
+echo &#8220;${C[wibble]}&#8221; shows keys are strings, not contiguous integers<br />
+declare -a D<br />
+D=(&#8220;a b c d e&#8221; &#8220;c d f t g&#8221;)<br />
+echo D is &#8220;${D[@]}&#8221;<br />
+echo Length of D is &#8220;${#D[@]}&#8221;<br />
+echo Length of &#8220;D[0]&#8221; is &#8220;${#D[0]}&#8221;<br />
+echo &#8220;D[0] is &#8216;${D[0]}'&#8221;<br />
+declare -a E=( ${D[@]} )<br />
+echo E is &#8220;${E[@]}&#8221;<br />
+echo Length of E is &#8220;${#E[@]}&#8221;<br />
+echo Length of &#8220;E[0]&#8221; is &#8220;${#E[0]}&#8221;<br />
+echo &#8220;E[0] is &#8216;${E[0]}'&#8221;<br />
+declare -a F=( ${D[@]/a*/} )<br />
+echo F is &#8220;${F[@]}&#8221;<br />
+echo Length of F is &#8220;${#F[@]}&#8221;<br />
+echo Length of &#8220;F[0]&#8221; is &#8220;${#F[0]}&#8221;<br />
+echo &#8220;F[0] is &#8216;${F[0]}'&#8221;<br />
+declare -a G=( &#8220;${D[@]/a*/}&#8221; )<br />
+echo G is &#8220;${G[@]}&#8221;<br />
+echo Length of G is &#8220;${#G[@]}&#8221;<br />
+echo Length of &#8220;G[0]&#8221; is &#8220;${#G[0]}&#8221;<br />
+echo &#8220;G[0] is &#8216;${G[0]}'&#8221;<br />
+echo Note in the above what happens with spaces<br />
+echo To concatenate two arrays, preserving spaces, use double quoting<br />
+declare -a H=(&#8220;${A[@]}&#8221; &#8220;${D[@]}&#8221;)<br />
+declare -a I=(${A[@]} ${D[@]})<br />
+echo To delete an array use unset<br />
+echo I is &#8220;${I[@]}&#8221;<br />
+unset I<br />
+echo I is now &#8220;${I[@]}&#8221;<br />
+echo reading from a file<br />
+px() {<br />
+    for s; do echo &#8220;$s&#8221;; done<br />
+}<br />
+echo version 1<br />
+declare -a I=(`cat hx`)<br />
+px &#8220;${I[@]}&#8221;<br />
+echo version 2<br />
+declare -a I=(&#8220;`cat hx`&#8221;)<br />
+px &#8220;${I[@]}&#8221;</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-4181891" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-4599903">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Griff</span>
+<span class="comment_date">November 6, 2015, 11:04 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-4599903"><p>+1 on x31eq&#8217;s comment about the quoting. It also means the value of ${#Unix[@]} is wrong. It would be great if you could correct this.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-4599903" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4793174">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Sam</span>
+<span class="comment_date">April 28, 2016, 5:37 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-4793174"><p>I have a created 2 arrays A, B from command output</p>
+<p>A=(`command1`) ## This contains filenames<br />
+B=(`command2`) ## This contains DB names</p>
+<p>Now I am issuing command3 using the above arrays</p>
+<p>Example: unzip  $A | mysql -u root -p $B ## Here the problem is it executes the &#8216;A&#8217; portion for each of the &#8216;B&#8217; elements</p>
+<p>How do i solve this?</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-4793174" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-4815775">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">srinivas</span>
+<span class="comment_date">May 25, 2016, 11:49 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-4815775"><p>Hi,</p>
+<p>I have single item &#8216;red hat&#8217; in array like array[&#8216;red hat&#8217;]. I want split the array from single index to 2 indexes like array[&#8216;red&#8217; &#8216;hat&#8217;].please suggest me with a solution</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-4815775" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4832768">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Sneha</span>
+<span class="comment_date">June 20, 2016, 11:54 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-4832768"><p>Hi,</p>
+<p>I am trying to get the table value in an array.<br />
+Say, there is a tbl with col1, col2, col3 having values &#8216;abc&#8217;, &#8216;def&#8217;, &#8216;ghi jkl&#8217;.<br />
+There is a function that I use to get these values from my Table to a variable say DBVAL, which is echoed from the function.<br />
+Now I want to assign each of these column values to different index of an array.<br />
+currently the command I use is:<br />
+declare -a arrayname=($(function_that_gets_value_from_table))</p>
+<p>but if I do:<br />
+echo ${#arrayname[@]}<br />
+it gives: 4 instead of 3</p>
+<p>and<br />
+for arr in &#8220;${arrayname[@]}&#8221;; do; echo &#8220;$arr&#8221;; done<br />
+gives:<br />
+abc<br />
+def<br />
+&#8216;ghi<br />
+jkl&#8217;<br />
+instead of:<br />
+abc<br />
+def<br />
+ghi jkl</p>
+<p>Even:<br />
+arrayname=( $DBVAL )<br />
+does not work.</p>
+<p>Although, if I declare the array with the hardcoded values (not get it from function/from any variable), then it works fine.<br />
+declare -a arrayname=(&#8216;abc&#8217; &#8216;def&#8217; &#8216;ghi jkl&#8217;)<br />
+ echo ${#arrayname[@]}<br />
+gives: 3</p>
+<p>for arr in &#8220;${arrayname[@]}&#8221;; do; echo &#8220;$arr&#8221;; done<br />
+gives:<br />
+abc<br />
+def<br />
+ghi jkl</p>
+<p>Please help.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-4832768" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-4837303">
+		<div class="comment_head">
+			<span class="avatar"><a href="http://NA" rel="nofollow"></a></span>
+<span class="comment_author"><a href='http://NA' rel='external nofollow ugc' class='url'>Gulab</a></span>
+<span class="comment_date">June 27, 2016, 7:25 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-4837303"><p>how to import multiple directory in array in runtime and check if directory is present or not ?</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-4837303" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4900600">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">David</span>
+<span class="comment_date">December 27, 2016, 5:01 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-4900600"><p>Thanks, this was a good beginning for me.</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-4900600" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="comment-4908919">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">Nav</span>
+<span class="comment_date">January 20, 2017, 2:38 pm</span>
+		</div>
+<div class="comment_text grt" id="comment-body-4908919"><p>Very nice!  By following your examples, I have successfully used arrays for many different automation scripts in bash.  In the same light, I am now in need of having to print two different arrays of same length side by side onto a file.  In other words, the first element of array A and the first element of array B should be on the first line of a text file separated by a tab.  And so on.  What&#8217;s the best way to achieve this?</p>
+<p>I tried the following:<br />
+printf &#8216;%s\t%s\n&#8217; &#8220;${A[@]}&#8221; &#8220;${B[@]}&#8221; &gt; file.txt</p>
+<p>It didn&#8217;t do what I want.  Instead, the above prints all elements of A first, then all elements of B, two per line.</p>
+<p>Any pointers would be greatly appreciated!</p>
+<p>Thanks!<br />
+Nav</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-4908919" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4944975">
+		<div class="comment_head">
+			<span class="avatar"></span>
+<span class="comment_author">anju</span>
+<span class="comment_date">April 8, 2017, 3:06 am</span>
+		</div>
+<div class="comment_text grt" id="comment-body-4944975"><p>thankuuuuuuuu</p>
+</div>
+<div class="comment_footer">
+<a class="comment_permalink" href="#comment-4944975" title="permalink to this comment" rel="nofollow">Link</a>
+</div>
+</li><!-- #comment-## -->
+</ul>
+<form id="commentform" method="post" action="https://www.thegeekstuff.com/wp-comments-post.php">
+	<a rel="nofollow" id="cancel-comment-reply-link" href="/2010/06/bash-array-tutorial/#respond" style="display:none;">Cancel reply</a>
+<p class="comment_form_title">Leave a Comment</p>
+<p id="comment_form_name">
+	<label for="author">Name</label>
+	<input type="text" id="author" class="input_text" name="author" value="" tabindex="1" />
+</p>
+<p id="comment_form_email">
+	<label for="email">Email</label>
+	<input type="text" id="email" class="input_text" name="email" value="" tabindex="2" />
+</p>
+<p id="comment_form_url">
+	<label for="url">Website</label>
+	<input type="text" id="url" class="input_text" name="url" value="" tabindex="3" />
+</p>
+<p id="comment_form_comment">
+	<label for="comment">Comment</label>
+	<textarea name="comment" id="comment" class="input_text" tabindex="4" rows="6"></textarea>
+</p>
+<p id="comment_form_submit">
+	<input type="submit" id="submit" class="input_submit" name="submit" tabindex="5" value="Submit" />
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="bc854c46b3" /></p>
+
+	<p style="clear: both;" class="subscribe-to-comments">
+	<input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" />
+	<label for="subscribe">Notify me of followup comments via e-mail</label>
+	</p>
+
+
+<p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="4"/></p><input type='hidden' name='comment_post_ID' value='4523' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</form>
+</div>
+<div class="prev_next">
+	<p class="next_post">Next post: <a href="https://www.thegeekstuff.com/2010/06/lzma-better-compression-than-bzip2-on-unix-linux/" rel="next">Lzma Vs Bzip2 &#8211; Better Compression than bzip2 on UNIX / Linux</a></p>
+<p class="previous_post">Previous post: <a href="https://www.thegeekstuff.com/2010/06/vmware-server-and-vmware-esxi-introduction/" rel="prev">VMware Virtualization Fundamentals &#8211; VMware Server and VMware ESXi</a></p>
+</div>
+	</div>
+<div class="sidebar">
+<div class="widget widget_text" id="text-21">			<div class="textwidget"><a title="Subscribe via RSS" href="https://www.thegeekstuff.com/feed" rel="nofollow">RSS</a>&nbsp; | &nbsp;<a title="Subscribe via Email" href="https://feedburner.google.com/fb/a/mailverify?uri=TheGeekStuff&loc=en_US" rel="nofollow">Email</a>&nbsp; | &nbsp;<a title="Follow us on Twitter" href="https://twitter.com/thegeekstuff" rel="nofollow">Twitter</a>&nbsp; | &nbsp;<a title="Become a fan" href="https://www.facebook.com/thegeekstuff" rel="nofollow">Facebook</a>&nbsp; | &nbsp;<a title="Follow us on Google+" href="https://plus.google.com/112493711428194838421/posts">Google+</a>
+<br /><br />
+<form action="https://www.thegeekstuff.com/search" id="cse-search-box">
+  <div>
+    <input type="hidden" name="cx" value="005666763606120661560:zkmegbt_djm" />
+    <input type="hidden" name="cof" value="FORID:10" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input style="background-color:#fffeee" type="text" name="q" size="30" />
+    <input style="border-color:#CCCCCC #999999 #999999 #CCCCCC; border-style:double; border-width:1px; overflow:visible;" type="submit" name="sa" value="Search" />
+  </div>
+</form>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
+<script type="text/javascript" src="https://www.google.com/coop/cse/t13n?form=cse-search-box&t13n_langs=en"></script>
+<script type="text/javascript" src="https://www.google.com/coop/cse/brand?form=cse-search-box&lang=en"></script>
+<br /></div>
+		</div><div class="widget widget_text" id="text-3">			<div class="textwidget"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- TGS Side Bar -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-8090601437064582"
+     data-ad-slot="9054077260"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br/></div>
+		</div><div class="widget widget_text" id="text-4"><p class="widget_title">EBOOKS</p>			<div class="textwidget"><ul>
+<li><img title="Linux 101 Hacks Book" src="https://static.thegeekstuff.com/images/free-small.png" alt="Linux 101 Hacks Book" />&nbsp;<a href="https://www.thegeekstuff.com/linux-101-hacks-ebook/">Linux 101 Hacks 2nd Edition eBook</a> - Practical Examples to Build a Strong Foundation in Linux</li>
+<li><a href="https://www.thegeekstuff.com/bash-101-hacks-ebook/">Bash 101 Hacks eBook</a> - Take Control of Your Bash Command Line and Shell Scripting</li>
+<li><a href="https://www.thegeekstuff.com/sed-awk-101-hacks-ebook/">Sed and Awk 101 Hacks eBook</a> - Enhance Your UNIX / Linux Life with Sed and Awk</li>
+<li><a href="https://www.thegeekstuff.com/vim-101-hacks-ebook/">Vim 101 Hacks eBook</a> - Practical Examples for Becoming Fast and Productive in Vim Editor</li>
+<li><a href="https://www.thegeekstuff.com/nagios-core-ebook/">Nagios Core 3 eBook</a> - Monitor Everything, Be Proactive, and Sleep Well</li>
+</ul></div>
+		</div><div class="widget widget_text" id="text-22">			<div class="textwidget"><iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fthegeekstuff&amp;width&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:258px;" allowTransparency="true"></iframe></div>
+		</div><div class="widget widget_text" id="text-17"><p class="widget_title">POPULAR POSTS</p>			<div class="textwidget"><ul>
+<li><a href="https://www.thegeekstuff.com/dslr-accessories/">15 Essential Accessories for Your Nikon or Canon DSLR Camera</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/01/12-amazing-and-essential-linux-books-to-enrich-your-brain-and-library/">12 Amazing and Essential Linux Books To Enrich Your Brain and Library</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/12/50-unix-linux-sysadmin-tutorials/">50 UNIX / Linux Sysadmin Tutorials</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/11/50-linux-commands/">50 Most Frequently Used UNIX / Linux Commands (With Examples)</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/08/gtd-getting-things-done/">How To Be Productive and Get Things Done Using GTD</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/03/30-things-to-do-when-you-are-bored-and-have-a-computer/">30 Things To Do When you are Bored and have a Computer</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/09/linux-file-system-structure/">Linux Directory Structure (File System Structure) Explained with Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/">Linux Crontab: 15 Awesome Cron Job Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/03/15-practical-unix-grep-command-examples/">Get a Grip on the Grep! – 15 Practical Grep Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/07/linux-ls-command-examples/">Unix LS Command: 15 Practical Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/08/15-examples-to-master-linux-command-line-history/">15 Examples To Master Linux Command Line History</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/08/bug-tracking-system/">Top 10 Open Source Bug Tracking System</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/01/vi-and-vim-macro-tutorial-how-to-record-and-play/">Vi and Vim Macro Tutorial: How To Record and Play</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/">Mommy, I found it! -- 15 Practical Linux Find Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/07/best-gmail-tips-and-tricks/">15 Awesome Gmail Tips and Tricks</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/06/expertise-in-google-search/">15 Awesome Google Search Tips and Tricks</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/08/raid-levels-tutorial/">RAID 0, RAID 1, RAID 5, RAID 10 Explained with Diagrams</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/01/15-practical-unix-linux-top-command-examples/">Can You Top This? 15 Practical Linux Top Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/09/top-5-best-network-monitoring-tools/">Top 5 Best System Monitoring Tools</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/06/top-5-best-linux-os-distributions/">Top 5 Best Linux OS Distributions</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/06/how-to-monitor-remote-linux-host-using-nagios-30/">How To Monitor Remote Linux Host using Nagios 3.0</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/">Awk Introduction Tutorial – 7 Awk Print Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/09/rsync-command-examples/">How to Backup Linux? 15 rsync Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/09/the-ultimate-wget-download-guide-with-15-awesome-examples/">The Ultimate Wget Download Guide With 15 Awesome Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/07/top-5-best-linux-text-editors/">Top 5 Best Linux Text Editors</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/08/tcpdump-command-examples/">Packet Analyzer: 15 TCPDUMP Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/06/bash-array-tutorial/">The Ultimate Bash Array Tutorial with 15 Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/">3 Steps to Perform SSH Login Without Password Using ssh-keygen & ssh-copy-id</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/">Unix Sed Tutorial: Advanced Sed Substitution Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/03/netstat-command-examples/">UNIX / Linux: 10 Netstat Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/06/the-ultimate-guide-for-creating-strong-passwords/">The Ultimate Guide for Creating Strong Passwords</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/08/6-steps-to-secure-your-home-wireless-network/">6 Steps to Secure Your Home Wireless Network</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/08/turbocharge-putty-with-12-powerful-add-ons-software-for-geeks-3/">Turbocharge PuTTY with 12 Powerful Add-Ons</a></li>
+</ul></div>
+		</div><div class="widget widget_text" id="text-19"><p class="widget_title">CATEGORIES</p>			<div class="textwidget"><ul>
+<li><a rel="nofollow" href="/category/linux/">Linux Tutorials</a></li>
+<li><a rel="nofollow" href="/category/vim-2/">Vim Editor</a></li>
+<li><a rel="nofollow" href="/category/sed/">Sed Scripting</a></li>
+<li><a rel="nofollow" href="/category/awk/">Awk Scripting</a></li>
+<li><a rel="nofollow" href="/category/bash-2/">Bash Shell Scripting</a></li>
+<li><a rel="nofollow" href="/category/nagios-2/">Nagios Monitoring</a></li>
+<li><a rel="nofollow" href="/category/openssh-2/">OpenSSH</a></li>
+<li><a rel="nofollow" href="/category/iptables/">IPTables Firewall</a></li>
+<li><a rel="nofollow" href="/category/apache/">Apache Web Server</a></li>
+<li><a rel="nofollow" href="/category/mysql/">MySQL Database</a></li>
+<li><a rel="nofollow" href="/category/perl/">Perl Programming</a></li>
+<li><a rel="nofollow" href="/category/google/">Google Tutorials</a></li>
+<li><a rel="nofollow" href="/category/ubuntu/">Ubuntu Tutorials</a></li>
+<li><a rel="nofollow" href="/category/postgresql/">PostgreSQL DB</a></li>
+<li><a rel="nofollow" href="/category/hello-world/">Hello World Examples</a></li>
+<li><a rel="nofollow" href="/category/c-programming/">C Programming</a></li>
+<li><a rel="nofollow" href="/category/c-plus-plus/">C++ Programming</a></li>
+<li><a rel="nofollow" href="/category/dell-2/">DELL Server Tutorials</a></li>
+<li><a rel="nofollow" href="/category/oracle/">Oracle Database</a></li>
+<li><a rel="nofollow" href="/category/vmware/">VMware Tutorials</a></li>
+</ul></div>
+		</div><div class="widget widget_text" id="text-20">			<div class="textwidget"><g:person href="https://plus.google.com/112493711428194838421" data-rel="author" layout="landscape"></g:person></div>
+		</div></div>
+</div>
+<div class="footer">
+<div id="footer_widgets" class="columns_3">
+	<div class="one-third sidebar first">
+<div class="widget widget_text" id="text-7"><h4 class="widget_title">About The Geek Stuff</h4>			<div class="textwidget"><br />
+<img class="float" title="Ramesh Natarajan" src="https://static.thegeekstuff.com/images/ramesh-small.gif" alt="Linux 101 Hacks Book" />
+My name is <strong>Ramesh Natarajan</strong>. I will be posting instruction guides, how-to, troubleshooting tips and tricks on Linux, database, hardware, security and web. My focus is to write articles that will either teach you or help you resolve a problem. Read more about <a href="https://www.thegeekstuff.com/about/">Ramesh Natarajan</a> and the blog.</div>
+		</div>	</div>
+	<div class="one-third sidebar">
+<div class="widget widget_text" id="text-9"><h4 class="widget_title">Contact Us</h4>			<div class="textwidget"><br />
+<strong>Email Me :</strong>
+Use this <a href="https://www.thegeekstuff.com/contact" rel="nofollow">Contact Form</a> to get in touch me with your comments, questions or suggestions about this site. You can also simply drop me a line to say hello!.
+<br /><br />
+<a title="Follow us on Google+" href="https://plus.google.com/112493711428194838421/posts">Follow us on Google+</a>
+<br /><br />
+<a title="Follow us on Twitter" href="https://twitter.com/thegeekstuff" rel="nofollow">Follow us on Twitter</a>
+<br /><br />
+<a href="
+https://www.facebook.com/thegeekstuff" rel="nofollow">Become a fan on Facebook</a>&nbsp;&nbsp;</div>
+		</div>	</div>
+	<div class="one-third sidebar last">
+<div class="widget widget_text" id="text-8"><h4 class="widget_title">Support Us</h4>			<div class="textwidget"><br />
+Support this blog by purchasing one of my ebooks.
+<br /><br />
+<a rel="nofollow" href="https://www.thegeekstuff.com/bash-101-hacks-ebook/">Bash 101 Hacks eBook</a>
+<br /><br />
+<a rel="nofollow" href="https://www.thegeekstuff.com/sed-awk-101-hacks-ebook/">Sed and Awk 101 Hacks eBook</a>
+<br /><br />
+<a rel="nofollow" href="https://www.thegeekstuff.com/vim-101-hacks-ebook/">Vim 101 Hacks eBook</a>
+<br /><br />
+<a rel="nofollow" href="https://www.thegeekstuff.com/nagios-core-ebook/">Nagios Core 3 eBook</a></div>
+		</div>	</div>
+	<div style="clear:both;"></div>
+</div>
+	<p class="attribution">Copyright &copy; 2008&ndash;2018 Ramesh Natarajan. All rights reserved  | <a href="https://www.thegeekstuff.com/copyright">Terms of Service</a></p>
+</div>
+</div>
+<script type='text/javascript' src='https://static.thegeekstuff.com/wp-includes/js/comment-reply.min.js.gzip?ver=5.3.4'></script>
+<script async="async" type='text/javascript' src='https://static.thegeekstuff.com/wp-content/plugins/akismet/_inc/form.js.gzip?ver=4.1.3'></script>
+<script type="text/javascript">
+(function(){
+	var classes = document.getElementsByClassName('menu_control');
+	for (i = 0; i < classes.length; i++) {
+		classes[i].onclick = function() {
+			var menu = this.nextElementSibling;
+			if (/show_menu/.test(menu.className))
+				menu.className = menu.className.replace('show_menu', '').trim();
+			else
+				menu.className += ' show_menu';
+		};
+	}
+})();
+</script>
+<noscript><style type="text/css" scoped>.menu { display: block; }</style></noscript>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+</body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+Content Delivery Network via Amazon Web Services: CloudFront: static.thegeekstuff.com
+
+ Served from: www.thegeekstuff.com @ 2020-08-11 06:36:05 by W3 Total Cache -->

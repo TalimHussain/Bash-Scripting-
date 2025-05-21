@@ -1,0 +1,25 @@
+*******************************
+
+Network based Scripts ?
+
+*******************************
+
+Task-1  Configure DHCP based IP to connect your machine with internet ?
+
+Task-2  Configure YUM using online epel repository to install any RPMs ?
+
+Task-3  verify your ssh service on Server node OR on machine number-1 ?
+
+Task-4  How we can login on any SSH node from any client machine using ssh command OR Putty Software ? 
+
+      First Method    ===> system admin ===> first login on the node after then we can run any command ?
+      Second Method   ===> system admin ===> if both nodes are configured with password less authentication in that
+                                              case it will not ask password every time while you are trying to run any commands.
+
+      Third Method  ==> we can passwd the password with command rather then type the password after password  prompt  using
+                        sshpass  rpm this task is possible
+
+      Forth Method  ==>  we can generate private and public key pair in SSH using ssh-keygen command
+                         after then we can import my public key on targets nodes using ssh-copy-id  
+
+      Fifth Method  ==>  using spawn expect send interact commands ..... we need to install first expect package using epel repo.  
